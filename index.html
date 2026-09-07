@@ -48,6 +48,23 @@
       <span id="slideCounter" class="text-xs font-mono font-bold text-slate-400 bg-slate-800 px-2.5 sm:px-3 py-1 rounded-full">
         Slide 1 / 12
       </span>
+      <div class="relative">
+        <button id="downloadBtn" onclick="toggleDownloads(event)" aria-label="Baixar PDFs" title="Baixar PDF (Pitch Deck / One-Pager)" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition shadow-lg shadow-emerald-600/30">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          <span>Baixar PDFs</span>
+        </button>
+        <div id="downloadMenu" class="hidden absolute right-0 top-full mt-2 w-64 rounded-xl border border-slate-700 bg-slate-900 shadow-2xl z-40 overflow-hidden">
+          <div class="px-4 py-2.5 border-b border-slate-800 text-[11px] font-extrabold text-slate-300 uppercase tracking-wider">Formatos prontos para envio</div>
+          <a href="exports/DriveSync-Pitch-Deck-2026.pdf" download class="block px-4 py-3 hover:bg-slate-800/80 transition border-b border-slate-800">
+            <span class="block text-sm font-bold text-white">📄 Pitch Deck Completo <span class="text-emerald-400">(16:9)</span></span>
+            <span class="block text-[11px] text-slate-400 mt-0.5">12 slides · PDF widescreen · alta resolução</span>
+          </a>
+          <a href="exports/DriveSync-One-Pager.pdf" download class="block px-4 py-3 hover:bg-slate-800/80 transition">
+            <span class="block text-sm font-bold text-white">📋 One-Pager Executivo <span class="text-emerald-400">(A4)</span></span>
+            <span class="block text-[11px] text-slate-400 mt-0.5">1 página · síntese da tese, métricas e contato</span>
+          </a>
+        </div>
+      </div>
       <div class="flex items-center gap-1 sm:gap-1.5">
         <button id="prevBtn" onclick="prevSlide()" aria-label="Slide anterior" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
@@ -636,6 +653,16 @@
     <div class="flex items-center gap-4 text-slate-400">
       <span class="sm:hidden text-[11px] text-slate-500">Deslize ↔ para navegar</span>
       <span class="hidden sm:inline">Navegação: <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">→</kbd> ou <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">Espaço</kbd> • Tela cheia: <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">F</kbd></span>
+      <span class="hidden md:flex items-center gap-4 border-l border-slate-800 pl-4">
+        <a href="exports/DriveSync-Pitch-Deck-2026.pdf" download class="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-bold transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          PDF Deck 16:9
+        </a>
+        <a href="exports/DriveSync-One-Pager.pdf" download class="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-bold transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          One-Pager
+        </a>
+      </span>
     </div>
   </footer>
 
@@ -724,6 +751,7 @@
         toggleFullscreen();
       } else if (e.key === 'Escape') {
         closeMockupZoom();
+        closeDownloads();
       }
     });
 
@@ -831,6 +859,29 @@
         modal.classList.remove('flex');
       }
     }
+
+    // Menu de Downloads (PDF / One-Pager)
+    function toggleDownloads(e) {
+      e.stopPropagation();
+      const menu = document.getElementById('downloadMenu');
+      if (menu) {
+        menu.classList.toggle('hidden');
+      }
+    }
+
+    function closeDownloads() {
+      const menu = document.getElementById('downloadMenu');
+      if (menu) {
+        menu.classList.add('hidden');
+      }
+    }
+
+    window.addEventListener('click', (e) => {
+      const btn = document.getElementById('downloadBtn');
+      if (!btn.contains(e.target)) {
+        closeDownloads();
+      }
+    });
 
     // Inicialização
     showSlide(getInitialSlide());

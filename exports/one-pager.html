@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveSync — One-Pager Executivo</title>
+
+  <!-- Tailwind CSS CDN + Inter typography -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    @page { size: A4 portrait; margin: 0; }
+    * { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #ffffff;
+      -webkit-print-color-adjust: exact; print-color-adjust: exact;
+    }
+    .op-page { width: 210mm; height: 297mm; margin: 0; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #ffffff; }
+
+    .op-header { background: #020617; color: #ffffff; padding: 12mm 16mm 9mm; }
+    .op-header-top { display: flex; align-items: center; justify-content: space-between; gap: 10mm; }
+    .op-brand { display: flex; align-items: center; gap: 4mm; }
+    .op-logo { width: 11mm; height: 11mm; border-radius: 2.5mm; background: linear-gradient(135deg, #2563eb, #6366f1); display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; color: #fff; }
+    .op-brand-name { font-size: 15px; font-weight: 900; letter-spacing: 0.02em; }
+    .op-brand-tag { font-size: 8.5px; color: #94a3b8; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; }
+    .op-badges { display: flex; gap: 3mm; flex-wrap: wrap; justify-content: flex-end; }
+    .op-badge { font-size: 8.5px; font-weight: 800; letter-spacing: 0.04em; padding: 2mm 4mm; border-radius: 999px; border: 1px solid rgba(37,99,235,0.5); background: rgba(37,99,235,0.14); color: #bfdbfe; white-space: nowrap; }
+    .op-badge.green { border-color: rgba(16,185,129,0.5); background: rgba(16,185,129,0.14); color: #6ee7b7; }
+    .op-badge.red { border-color: rgba(239,68,68,0.5); background: rgba(239,68,68,0.14); color: #fecaca; }
+    .op-headline { margin-top: 5mm; font-size: 23px; line-height: 1.18; font-weight: 900; letter-spacing: -0.01em; }
+    .op-headline span { background: linear-gradient(90deg, #60a5fa, #818cf8, #f87171); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .op-sub { margin-top: 3mm; font-size: 10.5px; line-height: 1.45; color: #cbd5e1; max-width: 168mm; }
+
+    .op-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; padding: 3.5mm 16mm; background: #f8fafc; border-bottom: 1px solid #e2e8f0; }
+    .op-stat { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 3mm; padding: 3mm 4mm; text-align: center; box-shadow: 0 1px 2px rgba(2,6,23,0.04); }
+    .op-stat-value { font-size: 20px; font-weight: 900; font-family: ui-monospace, monospace; }
+    .op-stat-label { font-size: 7.6px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; color: #64748b; margin-top: 1mm; }
+    .op-stat-sub { font-size: 7.8px; color: #94a3b8; margin-top: 0.6mm; }
+
+    .op-body { flex: 1; display: flex; flex-direction: column; padding: 3.5mm 16mm 0; gap: 3.5mm; }
+    .op-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; flex: 1; }
+    .op-card { border: 1px solid #e2e8f0; border-radius: 3.5mm; padding: 3.2mm 5mm; background: #ffffff; }
+    .op-card.prob { border-left: 3px solid #ef4444; }
+    .op-card.sol { border-left: 3px solid #2563eb; }
+    .op-card-title { font-size: 11px; font-weight: 900; color: #0f172a; display: flex; align-items: center; gap: 2.5mm; margin-bottom: 2mm; }
+    .op-card p { font-size: 9.2px; line-height: 1.45; color: #334155; margin: 0; }
+    .op-card ul { margin: 1.5mm 0 0; padding-left: 0; list-style: none; }
+    .op-card li { font-size: 9px; line-height: 1.38; color: #334155; display: flex; gap: 2mm; align-items: flex-start; }
+    .op-mark { font-size: 10px; font-weight: 800; }
+    .op-sec-title { font-size: 9px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.14em; color: #2563eb; margin-bottom: 2mm; }
+
+    .op-market { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4mm; margin-top: 3mm; }
+    .op-market-card { border-radius: 3.5mm; padding: 3mm 5mm; border: 1px solid #e2e8f0; background: #f8fafc; }
+    .op-market-card strong { display: block; font-size: 16px; font-weight: 900; font-family: ui-monospace, monospace; color: #0f172a; }
+    .op-market-card span { font-size: 7.8px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #2563eb; }
+    .op-market-card em { font-size: 8.6px; color: #64748b; font-style: normal; font-weight: 700; }
+    .op-market-card p { font-size: 8.4px; color: #475569; margin: 1.5mm 0 0; line-height: 1.4; }
+
+    .op-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 3mm; }
+    .op-plan { border: 1px solid #e2e8f0; border-radius: 3.5mm; padding: 3mm 5mm; background: #ffffff; }
+    .op-plan.hot { border: 2px solid #2563eb; background: linear-gradient(180deg, #eff6ff, #ffffff); position: relative; }
+    .op-plan-name { font-size: 10px; font-weight: 900; color: #0f172a; }
+    .op-plan-price { font-size: 16px; font-weight: 900; font-family: ui-monospace, monospace; color: #0f172a; margin-top: 1.5mm; }
+    .op-plan-price small { font-size: 8px; color: #64748b; font-weight: 600; }
+    .op-plan p { font-size: 8.4px; color: #475569; margin: 1.5mm 0 0; line-height: 1.4; }
+    .op-plan-chip { position: absolute; top: -2.2mm; left: 4mm; background: #2563eb; color: #fff; font-size: 7px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.06em; padding: 0.8mm 3mm; border-radius: 999px; }
+
+    .op-footer { background: #020617; color: #ffffff; margin-top: 4mm; padding: 5mm 16mm 5mm; display: flex; align-items: center; justify-content: space-between; gap: 6mm; }
+    .op-footer h3 { font-size: 11px; font-weight: 900; margin: 0 0 1.5mm; }
+    .op-footer p { font-size: 8.6px; line-height: 1.5; color: #cbd5e1; margin: 0; }
+    .op-footer .mail { font-family: ui-monospace, monospace; font-weight: 700; font-size: 12px; color: #60a5fa; }
+    .op-footer .alloc { display: flex; gap: 4mm; }
+    .op-footer .alloc span { font-size: 8.6px; color: #e2e8f0; font-weight: 700; }
+    .op-footer .alloc b { color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="op-page">
+
+    <!-- HEADER: identidade, proposta de valor e badges -->
+    <header class="op-header">
+      <div class="op-header-top">
+        <div class="op-brand">
+          <div class="op-logo">DS</div>
+          <div>
+            <div class="op-brand-name">DriveSync</div>
+            <div class="op-brand-tag">SaaS Auto Catálogo • Automotive Ads on Autopilot</div>
+          </div>
+        </div>
+        <div class="op-badges">
+          <span class="op-badge">🟦 Meta DAA Compliant</span>
+          <span class="op-badge green">● Produção Ativa</span>
+          <span class="op-badge">⚡ Setup 3 min</span>
+          <span class="op-badge red">👻 Zero Inventário Fantasma</span>
+          <span class="op-badge green">🔒 LGPD</span>
+        </div>
+      </div>
+      <h1 class="op-headline">Conecte o pátio da sua concessionária ao <span>Meta Ads em tempo real</span>.</h1>
+      <p class="op-sub">Infraestrutura SaaS que sincroniza DMSs automotivos (Linx, Syonet, NBS, AutoCerto, Altimus, Sisvag) ao Meta Automotive Inventory Ads (DAA) em 3 minutos — reduzindo o custo por lead em até <strong style="color:#fff;">-47%</strong>, o custo por carro vendido em <strong style="color:#fff;">-44,8%</strong> e eliminando 100% do inventário fantasma.</p>
+    </header>
+
+    <!-- MÉTRICAS EMPÍRICAS E ROI -->
+    <div class="op-stats">
+      <div class="op-stat">
+        <div class="op-stat-value" style="color:#2563eb;">-47%</div>
+        <div class="op-stat-label">Custo por Lead (CPL)</div>
+        <div class="op-stat-sub">$42,50 ➔ $22,58</div>
+      </div>
+      <div class="op-stat">
+        <div class="op-stat-value" style="color:#2563eb;">-44,8%</div>
+        <div class="op-stat-label">Custo / Carro Vendido</div>
+        <div class="op-stat-sub">$469 ➔ $259 (~R$ 1.050+)</div>
+      </div>
+      <div class="op-stat">
+        <div class="op-stat-value" style="color:#16a34a;">+240%</div>
+        <div class="op-stat-label">Volume de Leads (3,4x)</div>
+        <div class="op-stat-sub">CVR 2,30% ➔ 7,80%</div>
+      </div>
+      <div class="op-stat">
+        <div class="op-stat-value" style="color:#16a34a;">8,7/10</div>
+        <div class="op-stat-label">Score Qualidade do Lead</div>
+        <div class="op-stat-sub">+40% vs campanhas manuais</div>
+      </div>
+    </div>
+
+    <div class="op-body">
+      <div class="op-cols">
+        <!-- O PROBLEMA -->
+        <div class="op-card prob">
+          <div class="op-card-title">😡 O Problema — A Crise do Inventário Fantasma</div>
+          <p>Anúncios de carros <strong>já vendidos</strong> continuam rodando por <strong>48h a 72h</strong> na assimetria do fim de semana: vendas são faturadas na sexta, mas o pico de busca mobile acontece sábado/domingo, quando a equipe administrativa está ausente e o Advantage+ acelera justamente os veículos mais populares (recém-vendidos).</p>
+          <ul>
+            <li><span class="op-mark" style="color:#ef4444;">💸</span><span><strong>Queima de até 28,8% do budget</strong> — R$ 5.760/mês evaporados numa verba de R$ 20k (5 carros × 90 cliques × R$ 3,20 CPC).</span></li>
+            <li><span class="op-mark" style="color:#ef4444;">😤</span><span><strong>Suspeita de bait-and-switch</strong> — comprador descobre no WhatsApp que o carro já foi vendido; sobrecarrega BDC/SDR.</span></li>
+            <li><span class="op-mark" style="color:#ef4444;">📉</span><span><strong>Punição algorítmica</strong> — páginas esgotadas degradam o índice de qualidade e encarecem todos os lances.</span></li>
+          </ul>
+        </div>
+
+        <!-- A SOLUÇÃO -->
+        <div class="op-card sol">
+          <div class="op-card-title">🚀 A Solução — DriveSync</div>
+          <p>Infraestrutura <strong>event-driven</strong> que conecta o DMS diretamente à Meta: qualquer alteração de preço ou status de venda atualiza o anúncio em tempo real.</p>
+          <ul>
+            <li><span class="op-mark" style="color:#2563eb;">⚡</span><span><strong>Latência &lt; 15 min</strong> (vs 48h–72h manuais) via Webhooks / Meta Graph API Batch.</span></li>
+            <li><span class="op-mark" style="color:#2563eb;">🧵</span><span><strong>Streaming SAX Parser</strong> — feeds 50MB+ (5.000 veículos) em &lt; 30s com <strong>&lt; 256MB de RAM</strong> e Diff Engine incremental.</span></li>
+            <li><span class="op-mark" style="color:#2563eb;">🔁</span><span><strong>Comutação instantânea na reserva</strong> — o anúncio sai do ar no momento da reserva/proposta no CRM, sem esperar a emissão fiscal da NF.</span></li>
+            <li><span class="op-mark" style="color:#2563eb;">🔌</span><span><strong>Conectores nativos</strong> — Linx, Syonet, NBS, AutoCerto, Altimus, Sisvag, BomControle, DealerNet.</span></li>
+            <li><span class="op-mark" style="color:#2563eb;">🛡️</span><span><strong>Validação XSD DAA prévia</strong> — zero rejeições no catálogo Meta e zero penalização de score.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TAM / SAM / SOM -->
+      <div class="op-sec-title" style="margin-top: 2.5mm;">📊 Tamanho de Mercado</div>
+      <div class="op-market">
+        <div class="op-market-card">
+          <span>TAM — Mercado Total</span>
+          <strong>R$ 106M<span style="font-size:8px;color:#64748b;">/ano</span></strong>
+          <em>45.000+ lojas</em>
+          <p>Concessionárias e revendas ativas no Brasil (Fenauto / Fenabrave).</p>
+        </div>
+        <div class="op-market-card">
+          <span>SAM — Endereçável</span>
+          <strong>R$ 52M<span style="font-size:8px;color:#64748b;">/ano</span></strong>
+          <em>22.000 lojas</em>
+          <p>Revendas que já investem em mídia paga digital e usam DMS homologado.</p>
+        </div>
+        <div class="op-market-card" style="background:linear-gradient(180deg,#eff6ff,#f8fafc);border-color:#bfdbfe;">
+          <span style="color:#2563eb;">SOM — Objetivo 24 meses</span>
+          <strong>R$ 2,26M<span style="font-size:8px;color:#64748b;"> ARR</span></strong>
+          <em>900 lojas</em>
+          <p>4% do mercado qualificado via agências e self-service · MRR ~R$ 189k.</p>
+        </div>
+      </div>
+
+      <!-- PLANOS -->
+      <div class="op-sec-title" style="margin-top: 2.5mm;">💎 Modelo de Planos — SaaS Recorrente (&gt; 88% margem bruta)</div>
+      <div class="op-plans">
+        <div class="op-plan">
+          <div class="op-plan-name">Starter Catalog</div>
+          <div class="op-plan-price">R$ 97<small>/mês</small></div>
+          <p>Até 50 veículos · 1 DMS · Sincronização diária · Lojas boutique.</p>
+        </div>
+        <div class="op-plan hot">
+          <span class="op-plan-chip">Carro-Chefe</span>
+          <div class="op-plan-name">Pro Automotive</div>
+          <div class="op-plan-price">R$ 197<small>/mês</small></div>
+          <p>Até 200 veículos · Sync a cada 15 min · Suporte WhatsApp · Mapeador De/Para.</p>
+        </div>
+        <div class="op-plan">
+          <div class="op-plan-name">Enterprise DAA</div>
+          <div class="op-plan-price">R$ 397<small>/mês</small></div>
+          <p>Ilimitado · Multi-lojas · Tempo real contínuo · SLA 99,9%.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CAPTAÇÃO & CONTATO -->
+    <footer class="op-footer">
+      <div>
+        <h3>💰 Captação (Pre-Seed / Seed) &amp; Uso de Recursos</h3>
+        <div class="alloc">
+          <span><b>45%</b> Vendas &amp; GTM</span>
+          <span><b>35%</b> Engenharia &amp; Conectores</span>
+          <span><b>20%</b> Operações &amp; CS</span>
+          <span style="color:#94a3b8;">•</span>
+          <span><b>12 meses:</b> 450 lojas • R$ 95k MRR</span>
+        </div>
+      </div>
+      <div style="text-align:right;">
+        <p>Contato direto com os fundadores:</p>
+        <div class="mail">contato@autocatalogo.com.br</div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

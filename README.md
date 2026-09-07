@@ -1,9 +1,26 @@
 # 🚗 DriveSync — Investor Pitch Deck & Materiais de Captação
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Apresentação%20Online-blue?style=flat-square&logo=github)](https://saas-auto-catalogo.github.io/pitch-deck/)
+[![PDF Pitch Deck (16:9)](https://img.shields.io/badge/PDF-Pitch%20Deck%2016%3A9-emerald?style=flat-square)](./exports/DriveSync-Pitch-Deck-2026.pdf)
+[![PDF One-Pager (A4)](https://img.shields.io/badge/PDF-One--Pager%20Executivo-emerald?style=flat-square)](./exports/DriveSync-One-Pager.pdf)
 [![Licença](https://img.shields.io/badge/Licença-Proprietária%20%2F%20Confidencial-red?style=flat-square)](./LICENSE)
 
 Repositório oficial de relações com investidores, tese de investimento e materiais de captação da plataforma **DriveSync** (SaaS Auto Catálogo).
+
+---
+
+## 📥 Materiais para Envio Rápido (WhatsApp / E-mail)
+
+**Formatos estáticos prontos para envio direto a investidores e parceiros**, gerados em alta qualidade a partir dos templates de impressão da pasta [`/exports`](./exports).
+
+| Documento | Formato | Conteúdo |
+|---|---|---|
+| [**Pitch Deck Completo**](./exports/DriveSync-Pitch-Deck-2026.pdf) | PDF Widescreen 16:9 (12 páginas) | Todos os 12 slides em paisagem, com mockups HD e dados consolidados — ideal para telas e apresentações offline |
+| [**One-Pager Executivo**](./exports/DriveSync-One-Pager.pdf) | PDF A4 (1 página) | Síntese da tese: problema, solução, métricas & ROI, TAM/SAM/SOM, planos e contato |
+| [Fonte do Pitch Deck (HTML)](./exports/print-deck.html) | HTML `@page` 16in × 9in | Template de impressão dos 12 slides — gere/atualize o PDF em qualquer navegador (Ctrl+P) |
+| [Fonte do One-Pager (HTML)](./exports/one-pager.html) | HTML Tailwind CSS A4 | Template do one-pager otimizado para impressão |
+
+> ⚠️ **Confidencial**: os PDFs são exclusivos para uso interno e envio a investidores e parceiros autorizados, conforme a licença do repositório.
 
 ---
 
@@ -27,6 +44,11 @@ A apresentação visual interativa dos 12 slides foi desenvolvida com Tailwind C
 ├── index.html                     # Apresentação interativa dos 12 slides (Tailwind CSS)
 ├── slides/
 │   └── pitch_deck_drivesync.md    # Roteiro textual completo, notas de oratória e métricas
+├── exports/                       # Formatos estáticos prontos para envio (PDF 16:9 + One-Pager)
+│   ├── DriveSync-Pitch-Deck-2026.pdf  # PDF widescreen 16:9 com os 12 slides (alta resolução)
+│   ├── DriveSync-One-Pager.pdf        # One-pager executivo em A4 (1 página)
+│   ├── print-deck.html                # Template de impressão do deck (16in × 9in)
+│   └── one-pager.html                 # Template de impressão do one-pager (Tailwind, A4)
 ├── Sincronização DMS e Meta Ads.md # Benchmarks empíricos de CPL, CTR, CPC e conversão
 ├── Inventário Fantasma em Concessionárias.md # Diagnóstico técnico, latência de fim de semana e evasão orçamentária
 ├── .github/
