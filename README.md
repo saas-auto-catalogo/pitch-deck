@@ -7,6 +7,8 @@
 
 Repositório oficial de relações com investidores, tese de investimento e materiais de captação da plataforma **DriveSync** (SaaS Auto Catálogo).
 
+**Rodada Pré-Seed em andamento:** R$ 1M (soft cap R$ 600k) via **Mútuo Conversível** (LC 182/2021) — pipeline consolidado em [`fundraising/`](./fundraising/).
+
 ---
 
 ## 📥 Materiais para Envio Rápido (WhatsApp / E-mail)
@@ -38,6 +40,21 @@ A apresentação visual interativa dos 12 slides foi desenvolvida com Tailwind C
 
 ---
 
+## 💼 Captação de Investimento & Fundraising
+
+Processo de captação da rodada Pré-Seed da DriveSync, com base de inteligência de mercado e instrumento jurídico já estruturados:
+
+| Arquivo | Conteúdo |
+|---|---|
+| [**Pipeline de Investidores (CSV)**](./fundraising/pipeline-investidores.csv) | CRM com **52 registros**: 36 anjos setoriais (ex-Webmotors, ex-99, ex-iCarros, ex-OLX, Fenabrave, CAOA), 11 fundos Seed/Pré-Seed SaaS B2B (Canary, Maya, DOMO.VC, Bossa, SaaSholic, Astella, ONEVC, etc.) e 5 redes/veículos (BR Angels, GVAngels, FJ Labs) |
+| [**CRM & Governança do Funil**](./fundraising/investors-crm.md) | Estágios Lead ➔ Term Sheet, métricas semanais, matriz de priorização, FAQ de argumentos e ritmo de abordagem |
+| [**Teasers de Abordagem**](./fundraising/teasers-outreach.md) | 4 templates de 2 parágrafos (LinkedIn InMail, WhatsApp, E-mail Executivo, Redes de Anjos) com dados da tese |
+| [**Instrumento de Investimento**](./fundraising/instrumento-investimento-safe-mutuo.md) | Especificação do **Mútuo Conversível** (LC 182/2021): R$ 1M (soft cap R$ 600k), cap R$ 10M pós-money, desconto 20%, vencimento 24 meses, MFN |
+| [**Inteligência de Anjos Automotivos**](./fundraising/Investidores%20Anjo%20do%20Mercado%20Automotivo.md) | Relatório analítico: 36 investidores-anjo com histórico no setor e teses de investimento |
+| [**Inteligência de Fundos SaaS B2B**](./fundraising/Mapeamento%20Fundos%20SaaS%20B2B.md) | Relatório analítico: fundos Seed/Pré-Seed LATAM, faixas de cheque, critérios de subscrição e métricas por estágio |
+
+---
+
 ## 📑 Estrutura do Repositório
 
 ```text
@@ -64,6 +81,13 @@ A apresentação visual interativa dos 12 slides foi desenvolvida com Tailwind C
 │   ├── car-bmw-320i.jpg                 # Fotografia de alta resolução do veículo BMW 320i M Sport
 │   └── car-porsche-macan.jpg            # Fotografia de alta resolução do veículo Porsche Macan GTS
 ├── financials/                    # Projeções de ARR, Unit Economics e Cap Table
+├── fundraising/                   # Processo de captação da rodada Pré-Seed
+│   ├── pipeline-investidores.csv          # CRM do funil: 36 anjos + 11 fundos + 5 redes/veículos
+│   ├── investors-crm.md                   # Governança do funil (Lead ➔ Term Sheet) e métricas
+│   ├── teasers-outreach.md                # 4 templates de abordagem (LinkedIn, WhatsApp, E-mail, Redes)
+│   ├── instrumento-investimento-safe-mutuo.md # Mútuo Conversível (LC 182/2021) — termos da rodada
+│   ├── Investidores Anjo do Mercado Automotivo.md # Inteligência de anjos do setor automotivo
+│   └── Mapeamento Fundos SaaS B2B.md      # Inteligência de fundos Seed/Pré-Seed LATAM
 ```
 
 ---
