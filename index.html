@@ -3,76 +3,141 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pitch Deck — DriveSync (SaaS Auto Catálogo)</title>
+  <title>DriveSync — Investor Pitch Deck & Tese de Investimento</title>
   
   <!-- SEO & Social Sharing / Open Graph -->
   <meta name="description" content="Apresentação executiva e tese de investimento da DriveSync: infraestrutura que conecta DMSs automotivos ao Meta Automotive Inventory Ads (DAA) em 3 minutos.">
   <meta property="og:title" content="DriveSync — Investor Pitch Deck & Tese de Investimento">
-  <meta property="og:description" content="Conecte o pátio da sua concessionária ao Meta Ads em tempo real. Redução de 38% no CPL e eliminação total do desperdício operacional.">
+  <meta property="og:description" content="Conecte o pátio da sua concessionária ao Meta Ads em tempo real. Redução de até 47% no CPL e eliminação total do inventário fantasma.">
   <meta property="og:url" content="https://saas-auto-catalogo.github.io/pitch-deck/">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#020617">
+  <meta name="theme-color" content="#0037B0">
 
-  <!-- Tailwind CSS CDN -->
+  <!-- Google Fonts Oficiais do Design System DriveSync -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN com Design Tokens Oficiais saas-auto-catalogo -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#0037B0',         // Deep Cobalt Blue (Saga Tech Pro)
+              'primary-dark': '#002270',
+              'primary-light': '#EFF6FF',
+              'primary-border': '#BFDBFE',
+              price: '#DE2626',           // Automotive Red (Webmotors)
+              'price-dark': '#B91C1C',
+              'price-light': '#FEF2F2',
+              'price-border': '#FECACA',
+              accent: '#16A34A',          // Trust Green (Localiza Seminovos)
+              'accent-dark': '#15803D',
+              'accent-light': '#DCFCE7',
+              'accent-border': '#86EFAC',
+            },
+            surface: {
+              canvas: '#F8FAFC',          // Fundo limpo Slate 50
+              card: '#FFFFFF',            // Cartão de alto contraste
+              border: '#E2E8F0',          // Bordas sutis Slate 200
+              'border-hover': '#CBD5E1',   // Borda hover Slate 300
+              muted: '#F1F5F9',           // Superfícies secundárias Slate 100
+            },
+            typography: {
+              heading: '#0F172A',         // Slate 900
+              body: '#334155',            // Slate 700
+              muted: '#64748B',           // Slate 500
+              subtle: '#94A3B8',          // Slate 400
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          boxShadow: {
+            card: '0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05)',
+            'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05)',
+          }
+        }
+      }
+    };
+  </script>
+
   <style>
     .slide-enter {
       animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px) scale(0.99); }
+      from { opacity: 0; transform: translateY(8px) scale(0.995); }
       to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .mesh-bg {
+      background-image: 
+        radial-gradient(at 15% 15%, rgba(0, 55, 176, 0.04) 0px, transparent 50%),
+        radial-gradient(at 85% 85%, rgba(22, 163, 74, 0.04) 0px, transparent 50%),
+        radial-gradient(at 85% 15%, rgba(222, 38, 38, 0.03) 0px, transparent 50%);
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between select-none antialiased">
+<body class="bg-surface-canvas text-typography-body font-sans min-h-screen flex flex-col justify-between select-none antialiased selection:bg-brand-primary selection:text-white mesh-bg">
 
   <!-- Barra de Progresso Superior -->
-  <div id="progressBar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-400 transition-all duration-300 z-50" style="width: 8.33%;"></div>
+  <div id="progressBar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-brand-primary via-blue-600 to-brand-accent transition-all duration-300 z-50" style="width: 8.33%;"></div>
 
   <!-- Header Superior -->
-  <header class="w-full border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md px-4 sm:px-6 py-3 flex items-center justify-between z-20">
+  <header class="w-full border-b border-surface-border bg-white/95 backdrop-blur-md px-4 sm:px-8 py-3.5 flex items-center justify-between z-20 shadow-sm">
+    <!-- Logotipo Oficial da Organização -->
     <div class="flex items-center gap-3">
-      <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-black text-white text-sm shadow-md shadow-blue-500/20">
-        DS
+      <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-primary to-brand-primary-dark flex items-center justify-center text-white shadow-md shadow-blue-600/20">
+        <!-- Ícone de Camadas (Layers) idêntico aos demais repositórios -->
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+        </svg>
       </div>
-      <div>
-        <span class="font-extrabold text-white text-sm tracking-wide">DriveSync</span>
-        <span class="hidden sm:inline text-xs text-slate-400 ml-2 border-l border-slate-700 pl-2">Investor Pitch Deck 2026</span>
+      <div class="flex flex-col text-left">
+        <span class="text-lg font-black tracking-tight text-typography-heading flex items-center gap-1.5 leading-none">
+          DriveSync <span class="w-2 h-2 rounded-full bg-brand-price"></span>
+        </span>
+        <span class="text-[10px] text-typography-muted font-bold tracking-wider uppercase mt-1">
+          Investor Pitch Deck 2026
+        </span>
       </div>
     </div>
 
     <!-- Indicador de Slide & Controles -->
     <div class="flex items-center gap-2 sm:gap-3">
-      <span id="slideCounter" class="text-xs font-mono font-bold text-slate-400 bg-slate-800 px-2.5 sm:px-3 py-1 rounded-full">
+      <span id="slideCounter" class="text-xs font-mono font-bold text-typography-muted bg-surface-muted border border-surface-border px-3 py-1 rounded-full">
         Slide 1 / 12
       </span>
       <div class="relative">
-        <button id="downloadBtn" onclick="toggleDownloads(event)" aria-label="Baixar PDFs" title="Baixar PDF (Pitch Deck / One-Pager)" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold transition shadow-lg shadow-emerald-600/30">
+        <button id="downloadBtn" onclick="toggleDownloads(event)" aria-label="Baixar PDFs" title="Baixar PDF (Pitch Deck / One-Pager)" class="hidden sm:flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-brand-accent hover:bg-brand-accent-dark text-white text-xs font-bold transition shadow-md shadow-green-600/20">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
           <span>Baixar PDFs</span>
         </button>
-        <div id="downloadMenu" class="hidden absolute right-0 top-full mt-2 w-64 rounded-xl border border-slate-700 bg-slate-900 shadow-2xl z-40 overflow-hidden">
-          <div class="px-4 py-2.5 border-b border-slate-800 text-[11px] font-extrabold text-slate-300 uppercase tracking-wider">Formatos prontos para envio</div>
-          <a href="exports/DriveSync-Pitch-Deck-2026.pdf" download class="block px-4 py-3 hover:bg-slate-800/80 transition border-b border-slate-800">
-            <span class="block text-sm font-bold text-white">📄 Pitch Deck Completo <span class="text-emerald-400">(16:9)</span></span>
-            <span class="block text-[11px] text-slate-400 mt-0.5">12 slides · PDF widescreen · alta resolução</span>
+        <div id="downloadMenu" class="hidden absolute right-0 top-full mt-2 w-64 rounded-2xl border border-surface-border bg-white shadow-xl z-40 overflow-hidden">
+          <div class="px-4 py-2.5 border-b border-surface-border text-[11px] font-extrabold text-typography-muted uppercase tracking-wider bg-surface-muted">Formatos prontos para envio</div>
+          <a href="exports/DriveSync-Pitch-Deck-2026.pdf" download class="block px-4 py-3 hover:bg-surface-muted transition border-b border-surface-border">
+            <span class="block text-sm font-bold text-typography-heading">📄 Pitch Deck Completo <span class="text-brand-accent">(16:9)</span></span>
+            <span class="block text-[11px] text-typography-muted mt-0.5">12 slides · PDF widescreen · alta resolução</span>
           </a>
-          <a href="exports/DriveSync-One-Pager.pdf" download class="block px-4 py-3 hover:bg-slate-800/80 transition">
-            <span class="block text-sm font-bold text-white">📋 One-Pager Executivo <span class="text-emerald-400">(A4)</span></span>
-            <span class="block text-[11px] text-slate-400 mt-0.5">1 página · síntese da tese, métricas e contato</span>
+          <a href="exports/DriveSync-One-Pager.pdf" download class="block px-4 py-3 hover:bg-surface-muted transition">
+            <span class="block text-sm font-bold text-typography-heading">📋 One-Pager Executivo <span class="text-brand-accent">(A4)</span></span>
+            <span class="block text-[11px] text-typography-muted mt-0.5">1 página · síntese da tese, métricas e contato</span>
           </a>
         </div>
       </div>
       <div class="flex items-center gap-1 sm:gap-1.5">
-        <button id="prevBtn" onclick="prevSlide()" aria-label="Slide anterior" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed">
+        <button id="prevBtn" onclick="prevSlide()" aria-label="Slide anterior" class="p-2 rounded-xl bg-white border border-surface-border hover:bg-surface-muted text-typography-body transition disabled:opacity-30 disabled:cursor-not-allowed">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         </button>
-        <button id="nextBtn" onclick="nextSlide()" aria-label="Próximo slide" class="p-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition shadow-lg shadow-blue-600/30 disabled:opacity-30 disabled:cursor-not-allowed">
+        <button id="nextBtn" onclick="nextSlide()" aria-label="Próximo slide" class="p-2 rounded-xl bg-brand-primary hover:bg-brand-primary-dark text-white transition shadow-md shadow-blue-600/20 disabled:opacity-30 disabled:cursor-not-allowed">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
         </button>
-        <button id="fullscreenBtn" onclick="toggleFullscreen()" aria-label="Tela Cheia" title="Modo Apresentação (F)" class="hidden sm:flex p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition ml-1">
+        <button id="fullscreenBtn" onclick="toggleFullscreen()" aria-label="Tela Cheia" title="Modo Apresentação (F)" class="hidden sm:flex p-2 rounded-xl bg-white border border-surface-border hover:bg-surface-muted text-typography-muted hover:text-typography-heading transition ml-1">
           <svg id="fsIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
         </button>
       </div>
@@ -84,52 +149,52 @@
     
     <!-- SLIDE 1: CAPA -->
     <div class="slide slide-enter space-y-6" data-slide="1">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-extrabold">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-primary-light border border-brand-primary-border text-brand-primary text-xs font-extrabold shadow-sm">
         <span>🚀 SaaS B2B Automotivo • Meta Ads DAA & Google Vehicle Ads</span>
       </div>
-      <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight text-typography-heading leading-tight">
         Conecte o pátio da sua loja ao <br>
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-red-400">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-primary via-blue-600 to-brand-price">
           Instagram & Facebook em Tempo Real
         </span>
       </h1>
-      <p class="text-lg md:text-xl text-slate-300 max-w-3xl leading-relaxed">
+      <p class="text-lg md:text-xl text-typography-body max-w-3xl leading-relaxed">
         O <strong>DriveSync</strong> é a infraestrutura que sincroniza automaticamente os DMSs (Linx, Syonet, NBS, AutoCerto, Altimus, Sisvag) com o <strong>Meta Ads & Google</strong>, eliminando a latência de 48h a 72h no fim de semana e reduzindo o CPL em até 47%.
       </p>
-      <div class="pt-6 flex flex-wrap items-center gap-3 text-xs text-slate-400">
-        <span class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg text-slate-300">⚡ Setup em 3 minutos</span>
-        <span class="bg-slate-900 border border-red-500/30 text-red-400 px-3 py-1.5 rounded-lg font-bold">👻 Zero Inventário Fantasma (-R$ 5.760/mês)</span>
-        <span class="bg-slate-900 border border-emerald-500/30 text-emerald-400 px-3 py-1.5 rounded-lg font-bold">📉 -47% Custo por Lead</span>
-        <span class="bg-slate-900 border border-blue-500/30 text-blue-400 px-3 py-1.5 rounded-lg font-bold">🚗 -44,8% Custo / Carro Vendido</span>
+      <div class="pt-6 flex flex-wrap items-center gap-3 text-xs">
+        <span class="bg-white border border-surface-border px-3.5 py-2 rounded-xl text-typography-body shadow-sm font-semibold">⚡ Setup em 3 minutos</span>
+        <span class="bg-brand-price-light border border-brand-price-border text-brand-price px-3.5 py-2 rounded-xl font-bold shadow-sm">👻 Zero Inventário Fantasma (-R$ 5.760/mês)</span>
+        <span class="bg-brand-accent-light border border-brand-accent-border text-brand-accent-dark px-3.5 py-2 rounded-xl font-bold shadow-sm">📉 -47% Custo por Lead</span>
+        <span class="bg-brand-primary-light border border-brand-primary-border text-brand-primary px-3.5 py-2 rounded-xl font-bold shadow-sm">🚗 -44,8% Custo / Carro Vendido</span>
       </div>
     </div>
 
     <!-- SLIDE 2: O PROBLEMA -->
     <div class="slide hidden space-y-6" data-slide="2">
       <div class="flex items-center justify-between">
-        <span class="text-xs font-extrabold text-red-400 uppercase tracking-widest">A Crise do Inventário Fantasma</span>
-        <span class="text-xs font-mono bg-red-500/10 text-red-400 px-2.5 py-1 rounded-full border border-red-500/20">Até 28,8% do Budget Queimado</span>
+        <span class="text-xs font-extrabold text-brand-price uppercase tracking-widest">A Crise do Inventário Fantasma</span>
+        <span class="text-xs font-mono bg-brand-price-light text-brand-price px-3 py-1 rounded-full border border-brand-price-border font-bold">Até 28,8% do Budget Queimado</span>
       </div>
-      <h2 class="text-3xl md:text-5xl font-black text-white">48h a 72h de anúncios rodando em carros já vendidos</h2>
+      <h2 class="text-3xl md:text-5xl font-black text-typography-heading">48h a 72h de anúncios rodando em carros já vendidos</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-        <div class="bg-slate-900/90 border border-red-500/30 rounded-2xl p-6 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center font-bold text-lg">⏳</div>
-          <h3 class="text-lg font-bold text-white">A Assimetria do Fim de Semana</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+        <div class="bg-white border border-red-200 rounded-2xl p-6 space-y-3 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-xl bg-brand-price-light text-brand-price flex items-center justify-center font-bold text-lg border border-brand-price-border">⏳</div>
+          <h3 class="text-lg font-bold text-typography-heading">A Assimetria do Fim de Semana</h3>
+          <p class="text-xs text-typography-body leading-relaxed">
             As vendas concentram-se na <strong>sexta-feira à tarde</strong> no DMS. No sábado e domingo (pico de busca mobile), as equipes estão fora e o Advantage+ acelera anúncios nos carros recém-vendidos por terem alto engajamento prévio.
           </p>
         </div>
-        <div class="bg-slate-900/90 border border-amber-500/30 rounded-2xl p-6 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-lg">💸</div>
-          <h3 class="text-lg font-bold text-white">R$ 1.800 a R$ 5.760/mês de Evasão</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+        <div class="bg-white border border-amber-200 rounded-2xl p-6 space-y-3 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-lg border border-amber-200">💸</div>
+          <h3 class="text-lg font-bold text-typography-heading">R$ 1.800 a R$ 5.760/mês de Evasão</h3>
+          <p class="text-xs text-typography-body leading-relaxed">
             Numa concessionária típica (40-80 carros/mês), 5 veículos vendidos recebem ~90 cliques a R$ 3,20 de CPC. São <strong>R$ 5.760/mês jogados fora</strong> (28,8% de uma verba de R$ 20.000).
           </p>
         </div>
-        <div class="bg-slate-900/90 border border-purple-500/30 rounded-2xl p-6 space-y-3">
-          <div class="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center font-bold text-lg">😡</div>
-          <h3 class="text-lg font-bold text-white">Suspeita de Bait-and-Switch</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+        <div class="bg-white border border-purple-200 rounded-2xl p-6 space-y-3 shadow-sm hover:shadow-md transition-shadow">
+          <div class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-lg border border-purple-200">😡</div>
+          <h3 class="text-lg font-bold text-typography-heading">Suspeita de Bait-and-Switch</h3>
+          <p class="text-xs text-typography-body leading-relaxed">
             O comprador clica no anúncio e ouve no WhatsApp que o carro foi vendido ontem. Gera desconfiança imediata, destrói o tempo do BDC/SDR e causa punição algorítmica por páginas esgotadas.
           </p>
         </div>
@@ -139,56 +204,56 @@
     <!-- SLIDE 3: A SOLUÇÃO -->
     <div class="slide hidden space-y-6" data-slide="3">
       <div class="flex items-center justify-between">
-        <span class="text-xs font-extrabold text-green-400 uppercase tracking-widest">A Solução DriveSync</span>
-        <span class="text-xs font-mono bg-green-500/10 text-green-400 px-2.5 py-1 rounded-full border border-green-500/20">Latência &lt; 15 min vs 72h manual</span>
+        <span class="text-xs font-extrabold text-brand-accent uppercase tracking-widest">A Solução DriveSync</span>
+        <span class="text-xs font-mono bg-brand-accent-light text-brand-accent-dark px-3 py-1 rounded-full border border-brand-accent-border font-bold">Latência &lt; 15 min vs 72h manual</span>
       </div>
-      <h2 class="text-3xl md:text-5xl font-black text-white">Arquitetura Event-Driven & Benchmarks Empíricos</h2>
+      <h2 class="text-3xl md:text-5xl font-black text-typography-heading">Arquitetura Event-Driven & Benchmarks Empíricos</h2>
       <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pt-2">
         <div class="md:col-span-6 space-y-3.5">
-          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
-            <div class="w-8 h-8 rounded-lg bg-green-500/20 text-green-400 flex items-center justify-center font-black shrink-0">1</div>
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-border shadow-sm">
+            <div class="w-8 h-8 rounded-lg bg-brand-accent-light text-brand-accent-dark border border-brand-accent-border flex items-center justify-center font-black shrink-0">1</div>
             <div>
-              <h4 class="font-bold text-white text-base">Plug-and-Play em 3 Minutos</h4>
-              <p class="text-xs text-slate-300">Compatível nativamente com os principais DMSs do Brasil: <strong>Linx, Syonet, NBS, AutoCerto, Altimus, Sisvag, BomControle e DealerNet</strong>.</p>
+              <h4 class="font-bold text-typography-heading text-base">Plug-and-Play em 3 Minutos</h4>
+              <p class="text-xs text-typography-body">Compatível nativamente com os principais DMSs do Brasil: <strong>Linx, Syonet, NBS, AutoCerto, Altimus, Sisvag, BomControle e DealerNet</strong>.</p>
             </div>
           </div>
-          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
-            <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-black shrink-0">2</div>
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-border shadow-sm">
+            <div class="w-8 h-8 rounded-lg bg-brand-primary-light text-brand-primary border border-brand-primary-border flex items-center justify-center font-black shrink-0">2</div>
             <div>
-              <h4 class="font-bold text-white text-base">Streaming Parser & Normalização DAA</h4>
-              <p class="text-xs text-slate-300">Traduz estruturas proprietárias para o padrão XSD Meta Automotive Ads, eliminando <em>schema drift</em> e erros de conformidade de preço.</p>
+              <h4 class="font-bold text-typography-heading text-base">Streaming Parser & Normalização DAA</h4>
+              <p class="text-xs text-typography-body">Traduz estruturas proprietárias para o padrão XSD Meta Automotive Ads, eliminando <em>schema drift</em> e erros de conformidade de preço.</p>
             </div>
           </div>
-          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
-            <div class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-black shrink-0">3</div>
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-white border border-surface-border shadow-sm">
+            <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-200 flex items-center justify-center font-black shrink-0">3</div>
             <div>
-              <h4 class="font-bold text-white text-base">Antecipação na Reserva / Proposta</h4>
-              <p class="text-xs text-slate-300">Desativa o anúncio no momento da <strong>reserva formal no CRM</strong>, sem esperar dias pela emissão fiscal da NF no DMS. Risco residual nulo.</p>
+              <h4 class="font-bold text-typography-heading text-base">Antecipação na Reserva / Proposta</h4>
+              <p class="text-xs text-typography-body">Desativa o anúncio no momento da <strong>reserva formal no CRM</strong>, sem esperar dias pela emissão fiscal da NF no DMS. Risco residual nulo.</p>
             </div>
           </div>
         </div>
 
         <!-- Cards de Benchmarks Empíricos 2x2 -->
         <div class="md:col-span-6 grid grid-cols-2 gap-4">
-          <div class="bg-gradient-to-br from-slate-900 to-emerald-950/40 p-5 rounded-2xl border border-emerald-500/30 flex flex-col justify-center text-center">
-            <div class="text-4xl font-black text-emerald-400 font-mono">-47%</div>
-            <p class="text-xs font-bold text-slate-200 mt-1 uppercase tracking-wider">Custo Médio / Lead (CPL)</p>
-            <span class="text-[11px] text-slate-400 mt-1">$42,50 ➔ $22,58 (Meta Benchmarks)</span>
+          <div class="bg-gradient-to-br from-white to-emerald-50/60 p-5 rounded-2xl border border-emerald-200 shadow-sm flex flex-col justify-center text-center">
+            <div class="text-4xl font-black text-brand-accent font-mono">-47%</div>
+            <p class="text-xs font-bold text-typography-heading mt-1 uppercase tracking-wider">Custo Médio / Lead (CPL)</p>
+            <span class="text-[11px] text-typography-muted mt-1 font-semibold">$42,50 ➔ $22,58 (Meta Benchmarks)</span>
           </div>
-          <div class="bg-gradient-to-br from-slate-900 to-blue-950/40 p-5 rounded-2xl border border-blue-500/30 flex flex-col justify-center text-center">
-            <div class="text-4xl font-black text-blue-400 font-mono">-44,8%</div>
-            <p class="text-xs font-bold text-slate-200 mt-1 uppercase tracking-wider">Custo / Carro Vendido</p>
-            <span class="text-[11px] text-slate-400 mt-1">$469 ➔ $259 por venda física</span>
+          <div class="bg-gradient-to-br from-white to-blue-50/60 p-5 rounded-2xl border border-blue-200 shadow-sm flex flex-col justify-center text-center">
+            <div class="text-4xl font-black text-brand-primary font-mono">-44,8%</div>
+            <p class="text-xs font-bold text-typography-heading mt-1 uppercase tracking-wider">Custo / Carro Vendido</p>
+            <span class="text-[11px] text-typography-muted mt-1 font-semibold">$469 ➔ $259 por venda física</span>
           </div>
-          <div class="bg-gradient-to-br from-slate-900 to-indigo-950/40 p-5 rounded-2xl border border-indigo-500/30 flex flex-col justify-center text-center">
-            <div class="text-4xl font-black text-indigo-400 font-mono">3,4x</div>
-            <p class="text-xs font-bold text-slate-200 mt-1 uppercase tracking-wider">Volume de Leads (+240%)</p>
-            <span class="text-[11px] text-slate-400 mt-1">CVR salta de 2,30% para 7,80%</span>
+          <div class="bg-gradient-to-br from-white to-indigo-50/60 p-5 rounded-2xl border border-indigo-200 shadow-sm flex flex-col justify-center text-center">
+            <div class="text-4xl font-black text-indigo-600 font-mono">3,4x</div>
+            <p class="text-xs font-bold text-typography-heading mt-1 uppercase tracking-wider">Volume de Leads (+240%)</p>
+            <span class="text-[11px] text-typography-muted mt-1 font-semibold">CVR salta de 2,30% para 7,80%</span>
           </div>
-          <div class="bg-gradient-to-br from-slate-900 to-purple-950/40 p-5 rounded-2xl border border-purple-500/30 flex flex-col justify-center text-center">
-            <div class="text-4xl font-black text-purple-400 font-mono">8,7 / 10</div>
-            <p class="text-xs font-bold text-slate-200 mt-1 uppercase tracking-wider">Score Qualidade Lead</p>
-            <span class="text-[11px] text-slate-400 mt-1">+40% vs campanhas manuais (6,2)</span>
+          <div class="bg-gradient-to-br from-white to-purple-50/60 p-5 rounded-2xl border border-purple-200 shadow-sm flex flex-col justify-center text-center">
+            <div class="text-4xl font-black text-purple-600 font-mono">8,7 / 10</div>
+            <p class="text-xs font-bold text-typography-heading mt-1 uppercase tracking-wider">Score Qualidade Lead</p>
+            <span class="text-[11px] text-typography-muted mt-1 font-semibold">+40% vs campanhas manuais (6,2)</span>
           </div>
         </div>
       </div>
@@ -198,29 +263,29 @@
     <div class="slide hidden space-y-5" data-slide="4">
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
         <div>
-          <span class="text-xs font-extrabold text-blue-400 uppercase tracking-widest">Produto em Operação</span>
-          <h2 class="text-2xl md:text-4xl font-black text-white">Dashboard do Lojista + Simulador Meta DAA</h2>
+          <span class="text-xs font-extrabold text-brand-primary uppercase tracking-widest">Produto em Operação</span>
+          <h2 class="text-2xl md:text-4xl font-black text-typography-heading">Dashboard do Lojista + Simulador Meta DAA</h2>
         </div>
-        <span class="text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full w-fit">
+        <span class="text-xs font-mono bg-brand-accent-light text-brand-accent-dark border border-brand-accent-border px-3 py-1 rounded-full w-fit font-bold">
           ● Produção Ativa
         </span>
       </div>
 
       <!-- Navegação de Abas Interativas do Slide 4 -->
-      <div class="flex flex-wrap items-center gap-2 border-b border-slate-800 pb-2">
-        <button onclick="switchProductTab('bmw')" id="tab-btn-bmw" class="prod-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-blue-600 text-white shadow-md shadow-blue-600/30">
+      <div class="flex flex-wrap items-center gap-2 border-b border-surface-border pb-2">
+        <button onclick="switchProductTab('bmw')" id="tab-btn-bmw" class="prod-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-brand-primary text-white shadow-md shadow-blue-600/20">
           <span>🚗 BMW 320i (Instagram)</span>
         </button>
-        <button onclick="switchProductTab('porsche')" id="tab-btn-porsche" class="prod-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700">
+        <button onclick="switchProductTab('porsche')" id="tab-btn-porsche" class="prod-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-white text-typography-body hover:bg-surface-muted border border-surface-border">
           <span>🏎️ Porsche Macan (Meta DAA)</span>
         </button>
-        <button onclick="switchProductTab('pendencias')" id="tab-btn-pendencias" class="prod-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700">
+        <button onclick="switchProductTab('pendencias')" id="tab-btn-pendencias" class="prod-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-white text-typography-body hover:bg-surface-muted border border-surface-border">
           <span>⚠️ Tabela de Pendências</span>
         </button>
-        <button onclick="switchProductTab('mapeador')" id="tab-btn-mapeador" class="prod-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700">
+        <button onclick="switchProductTab('mapeador')" id="tab-btn-mapeador" class="prod-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-white text-typography-body hover:bg-surface-muted border border-surface-border">
           <span>🔄 Mapeador De/Para</span>
         </button>
-        <button onclick="switchProductTab('demo')" id="tab-btn-demo" class="prod-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700">
+        <button onclick="switchProductTab('demo')" id="tab-btn-demo" class="prod-tab-btn px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-white text-typography-body hover:bg-surface-muted border border-surface-border">
           <span>🎬 Sync ao Vivo (10s Vídeo/GIF)</span>
         </button>
       </div>
@@ -230,105 +295,105 @@
         <!-- Coluna de Explicação Técnica (5 cols) -->
         <div class="md:col-span-5 space-y-4">
           <div id="tab-desc-bmw" class="prod-desc space-y-3">
-            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-blue-400 uppercase">Mockup Instagram Feed</span>
-                <span class="text-[11px] font-mono font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">R$ 349.900</span>
+                <span class="text-xs font-bold text-brand-primary uppercase">Mockup Instagram Feed</span>
+                <span class="text-[11px] font-mono font-bold text-brand-price bg-brand-price-light px-2.5 py-0.5 rounded border border-brand-price-border">R$ 349.900</span>
               </div>
-              <h4 class="font-bold text-white text-base">BMW 320i M Sport 2026</h4>
-              <p class="text-xs text-slate-300 leading-relaxed">
-                Anúncio de catálogo dinâmico (Meta Advantage+ DAA) gerado automaticamente. Foto em proporção 1:1, destaque de preço em vermelho (<code class="text-red-400">#ef4444</code>) e botão direto de WhatsApp com mensagem contextual do veículo.
+              <h4 class="font-bold text-typography-heading text-base">BMW 320i M Sport 2026</h4>
+              <p class="text-xs text-typography-body leading-relaxed">
+                Anúncio de catálogo dinâmico (Meta Advantage+ DAA) gerado automaticamente. Foto em proporção 1:1, destaque de preço em vermelho automotivo (<code class="text-brand-price font-mono font-bold">#DE2626</code>) e botão direto de WhatsApp com mensagem contextual do veículo.
               </p>
-              <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
-                <li class="flex items-center gap-2">✅ <strong>Custom Labels:</strong> Segmentação automática por faixa de preço e turbo.</li>
-                <li class="flex items-center gap-2">✅ <strong>Taxa de Conversão:</strong> CVR salta de 2,30% para 7,80%.</li>
+              <ul class="text-xs text-typography-muted space-y-1.5 pt-1">
+                <li class="flex items-center gap-2">✅ <strong class="text-typography-body">Custom Labels:</strong> Segmentação automática por faixa de preço e turbo.</li>
+                <li class="flex items-center gap-2">✅ <strong class="text-typography-body">Taxa de Conversão:</strong> CVR salta de 2,30% para 7,80%.</li>
               </ul>
             </div>
-            <button onclick="openMockupZoom('assets/mockup-instagram-bmw-320i.png')" class="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700 transition flex items-center justify-center gap-2">
-              <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            <button onclick="openMockupZoom('assets/mockup-instagram-bmw-320i.png')" class="w-full py-2.5 px-3 rounded-xl bg-white hover:bg-surface-muted text-xs font-bold text-typography-heading border border-surface-border shadow-sm transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
               <span>Ver Mockup em Alta Resolução (HD)</span>
             </button>
           </div>
 
           <div id="tab-desc-porsche" class="prod-desc hidden space-y-3">
-            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-blue-400 uppercase">Simulação Meta Advantage+</span>
-                <span class="text-[11px] font-mono font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">R$ 689.000</span>
+                <span class="text-xs font-bold text-brand-primary uppercase">Simulação Meta Advantage+</span>
+                <span class="text-[11px] font-mono font-bold text-brand-price bg-brand-price-light px-2.5 py-0.5 rounded border border-brand-price-border">R$ 689.000</span>
               </div>
-              <h4 class="font-bold text-white text-base">Porsche Macan GTS 2026</h4>
-              <p class="text-xs text-slate-300 leading-relaxed">
+              <h4 class="font-bold text-typography-heading text-base">Porsche Macan GTS 2026</h4>
+              <p class="text-xs text-typography-body leading-relaxed">
                 Veículo com badge PLV (Product-Level Video) integrado. Anúncios enriquecidos com vídeo curto por VIN geram até +48% em taxas de conversão de leads qualificados de alta renda.
               </p>
-              <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
-                <li class="flex items-center gap-2">✅ <strong>Meta Advantage+:</strong> Roteamento preditivo para usuários com alta intenção.</li>
-                <li class="flex items-center gap-2">✅ <strong>Blindagem III-A:</strong> Tag DAA customizada para públicos segmentados.</li>
+              <ul class="text-xs text-typography-muted space-y-1.5 pt-1">
+                <li class="flex items-center gap-2">✅ <strong class="text-typography-body">Meta Advantage+:</strong> Roteamento preditivo para usuários com alta intenção.</li>
+                <li class="flex items-center gap-2">✅ <strong class="text-typography-body">Blindagem III-A:</strong> Tag DAA customizada para públicos segmentados.</li>
               </ul>
             </div>
-            <button onclick="openMockupZoom('assets/mockup-instagram-porsche-macan.png')" class="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700 transition flex items-center justify-center gap-2">
-              <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            <button onclick="openMockupZoom('assets/mockup-instagram-porsche-macan.png')" class="w-full py-2.5 px-3 rounded-xl bg-white hover:bg-surface-muted text-xs font-bold text-typography-heading border border-surface-border shadow-sm transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
               <span>Ver Mockup em Alta Resolução (HD)</span>
             </button>
           </div>
 
           <div id="tab-desc-pendencias" class="prod-desc hidden space-y-3">
-            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-amber-400 uppercase">Proteção de Budget</span>
-                <span class="text-[11px] font-mono font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">Zero Rejeições</span>
+                <span class="text-xs font-bold text-amber-600 uppercase">Proteção de Budget</span>
+                <span class="text-[11px] font-mono font-bold text-brand-price bg-brand-price-light px-2.5 py-0.5 rounded border border-brand-price-border">Zero Rejeições</span>
               </div>
-              <h4 class="font-bold text-white text-base">Tabela de Pendências de Estoque</h4>
-              <p class="text-xs text-slate-300 leading-relaxed">
+              <h4 class="font-bold text-typography-heading text-base">Tabela de Pendências de Estoque</h4>
+              <p class="text-xs text-typography-body leading-relaxed">
                 Algoritmo de auditoria prévia que identifica e isola veículos com fotos cortadas (fora de 1:1), preço zerado ou dados fiscais divergentes antes do leilão da Meta Ads.
               </p>
-              <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
-                <li class="flex items-center gap-2">🛡️ <strong>Zero Punição de Score:</strong> Evita queda no índice de qualidade do Meta Catalog.</li>
-                <li class="flex items-center gap-2">💰 <strong>Economia Média:</strong> -R$ 1.840/semana em desperdícios operacionais.</li>
+              <ul class="text-xs text-typography-muted space-y-1.5 pt-1">
+                <li class="flex items-center gap-2">🛡️ <strong class="text-typography-body">Zero Punição de Score:</strong> Evita queda no índice de qualidade do Meta Catalog.</li>
+                <li class="flex items-center gap-2">💰 <strong class="text-typography-body">Economia Média:</strong> -R$ 1.840/semana em desperdícios operacionais.</li>
               </ul>
             </div>
-            <button onclick="openMockupZoom('assets/tabela-pendencias-estoque.png')" class="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700 transition flex items-center justify-center gap-2">
-              <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            <button onclick="openMockupZoom('assets/tabela-pendencias-estoque.png')" class="w-full py-2.5 px-3 rounded-xl bg-white hover:bg-surface-muted text-xs font-bold text-typography-heading border border-surface-border shadow-sm transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
               <span>Ver Tabela em Alta Resolução (HD)</span>
             </button>
           </div>
 
           <div id="tab-desc-mapeador" class="prod-desc hidden space-y-3">
-            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-indigo-400 uppercase">Setup em 3 Minutos</span>
-                <span class="text-[11px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">99.8% Confiança IA</span>
+                <span class="text-xs font-bold text-brand-primary uppercase">Setup em 3 Minutos</span>
+                <span class="text-[11px] font-mono font-bold text-brand-accent-dark bg-brand-accent-light px-2.5 py-0.5 rounded border border-brand-accent-border">99.8% Confiança IA</span>
               </div>
-              <h4 class="font-bold text-white text-base">Mapeador De/Para Interativo</h4>
-              <p class="text-xs text-slate-300 leading-relaxed">
+              <h4 class="font-bold text-typography-heading text-base">Mapeador De/Para Interativo</h4>
+              <p class="text-xs text-typography-body leading-relaxed">
                 Integração zero-code para qualquer DMS nacional (AutoCerto, Altimus, Sisvag, Linx, Syonet). O motor heurístico mapeia as tags XML com 99.8% de precisão automática.
               </p>
-              <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
-                <li class="flex items-center gap-2">⚡ <strong>Zero Código:</strong> Lojista ou agência conecta em menos de 180 segundos.</li>
-                <li class="flex items-center gap-2">🔄 <strong>Normalização XSD:</strong> Adequação instantânea à especificação DAA.</li>
+              <ul class="text-xs text-typography-muted space-y-1.5 pt-1">
+                <li class="flex items-center gap-2">⚡ <strong class="text-typography-body">Zero Código:</strong> Lojista ou agência conecta em menos de 180 segundos.</li>
+                <li class="flex items-center gap-2">🔄 <strong class="text-typography-body">Normalização XSD:</strong> Adequação instantânea à especificação DAA.</li>
               </ul>
             </div>
-            <button onclick="openMockupZoom('assets/mapeador-de-para.png')" class="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700 transition flex items-center justify-center gap-2">
-              <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            <button onclick="openMockupZoom('assets/mapeador-de-para.png')" class="w-full py-2.5 px-3 rounded-xl bg-white hover:bg-surface-muted text-xs font-bold text-typography-heading border border-surface-border shadow-sm transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
               <span>Ver Mapeador em Alta Resolução (HD)</span>
             </button>
           </div>
 
           <div id="tab-desc-demo" class="prod-desc hidden space-y-3">
-            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm space-y-3">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-emerald-400 uppercase">Sincronização ao Vivo</span>
-                <span class="text-[11px] font-mono font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">SLA 2.4s Ponta-a-Ponta</span>
+                <span class="text-xs font-bold text-brand-accent uppercase">Sincronização ao Vivo</span>
+                <span class="text-[11px] font-mono font-bold text-brand-primary bg-brand-primary-light px-2.5 py-0.5 rounded border border-brand-primary-border">SLA 2.4s Ponta-a-Ponta</span>
               </div>
-              <h4 class="font-bold text-white text-base">Demonstração Ponta-a-Ponta (10s)</h4>
-              <p class="text-xs text-slate-300 leading-relaxed">
+              <h4 class="font-bold text-typography-heading text-base">Demonstração Ponta-a-Ponta (10s)</h4>
+              <p class="text-xs text-typography-body leading-relaxed">
                 Veja o fluxo em tempo real: alteração de preço no DMS é detectada pelo Streaming SAX, o delta XML é gerado e a Meta Graph API atualiza o anúncio no Instagram em 2.4 segundos.
               </p>
-              <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
-                <li class="flex items-center gap-2">🚀 <strong>Zero Latência:</strong> Sem espera de 48h a 72h no final de semana.</li>
-                <li class="flex items-center gap-2">👻 <strong>Zero Fantasma:</strong> Carro reservado sai do ar instantaneamente.</li>
+              <ul class="text-xs text-typography-muted space-y-1.5 pt-1">
+                <li class="flex items-center gap-2">🚀 <strong class="text-typography-body">Zero Latência:</strong> Sem espera de 48h a 72h no final de semana.</li>
+                <li class="flex items-center gap-2">👻 <strong class="text-typography-body">Zero Fantasma:</strong> Carro reservado sai do ar instantaneamente.</li>
               </ul>
             </div>
-            <a href="assets/demo-sync-feed.mp4" download class="w-full py-2 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-bold text-white transition flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30">
+            <a href="assets/demo-sync-feed.mp4" download class="w-full py-2.5 px-3 rounded-xl bg-brand-primary hover:bg-brand-primary-dark text-xs font-bold text-white transition flex items-center justify-center gap-2 shadow-md shadow-blue-600/20">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
               <span>Baixar Vídeo da Demonstração (MP4)</span>
             </a>
@@ -337,38 +402,38 @@
 
         <!-- Coluna de Exibição Visual / Mockup Interativo (7 cols) -->
         <div class="md:col-span-7 flex items-center justify-center">
-          <div class="w-full bg-slate-900/80 p-3 sm:p-4 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden flex items-center justify-center min-h-[360px]">
+          <div class="w-full bg-white p-3 sm:p-5 rounded-3xl border border-surface-border shadow-md relative overflow-hidden flex items-center justify-center min-h-[360px]">
             <!-- Visual 1: BMW -->
             <div id="tab-view-bmw" class="prod-view w-full flex justify-center cursor-pointer" onclick="openMockupZoom('assets/mockup-instagram-bmw-320i.png')" title="Clique para ampliar">
-              <img src="assets/mockup-instagram-bmw-320i.png" alt="Simulador Meta Ads BMW 320i" class="max-h-[380px] w-auto rounded-2xl border border-slate-800 shadow-xl object-contain hover:scale-[1.01] transition duration-200" />
+              <img src="assets/mockup-instagram-bmw-320i.png" alt="Simulador Meta Ads BMW 320i" class="max-h-[380px] w-auto rounded-2xl border border-surface-border shadow-md object-contain hover:scale-[1.01] transition duration-200" />
             </div>
 
             <!-- Visual 2: Porsche -->
             <div id="tab-view-porsche" class="prod-view hidden w-full flex justify-center cursor-pointer" onclick="openMockupZoom('assets/mockup-instagram-porsche-macan.png')" title="Clique para ampliar">
-              <img src="assets/mockup-instagram-porsche-macan.png" alt="Simulador Meta Ads Porsche Macan" class="max-h-[380px] w-auto rounded-2xl border border-slate-800 shadow-xl object-contain hover:scale-[1.01] transition duration-200" />
+              <img src="assets/mockup-instagram-porsche-macan.png" alt="Simulador Meta Ads Porsche Macan" class="max-h-[380px] w-auto rounded-2xl border border-surface-border shadow-md object-contain hover:scale-[1.01] transition duration-200" />
             </div>
 
             <!-- Visual 3: Pendências -->
             <div id="tab-view-pendencias" class="prod-view hidden w-full flex justify-center cursor-pointer" onclick="openMockupZoom('assets/tabela-pendencias-estoque.png')" title="Clique para ampliar">
-              <img src="assets/tabela-pendencias-estoque.png" alt="Tabela de Pendências de Estoque" class="w-full rounded-2xl border border-slate-800 shadow-xl object-contain hover:scale-[1.01] transition duration-200" />
+              <img src="assets/tabela-pendencias-estoque.png" alt="Tabela de Pendências de Estoque" class="w-full rounded-2xl border border-surface-border shadow-md object-contain hover:scale-[1.01] transition duration-200" />
             </div>
 
             <!-- Visual 4: Mapeador -->
             <div id="tab-view-mapeador" class="prod-view hidden w-full flex justify-center cursor-pointer" onclick="openMockupZoom('assets/mapeador-de-para.png')" title="Clique para ampliar">
-              <img src="assets/mapeador-de-para.png" alt="Mapeador De/Para Interativo" class="w-full rounded-2xl border border-slate-800 shadow-xl object-contain hover:scale-[1.01] transition duration-200" />
+              <img src="assets/mapeador-de-para.png" alt="Mapeador De/Para Interativo" class="w-full rounded-2xl border border-surface-border shadow-md object-contain hover:scale-[1.01] transition duration-200" />
             </div>
 
             <!-- Visual 5: Vídeo / GIF Demo -->
             <div id="tab-view-demo" class="prod-view hidden w-full flex flex-col items-center justify-center space-y-2">
-              <div class="w-full rounded-2xl border border-slate-800 overflow-hidden shadow-2xl bg-black">
+              <div class="w-full rounded-2xl border border-surface-border overflow-hidden shadow-md bg-slate-950">
                 <video id="demoVideoPlayer" class="w-full h-auto max-h-[360px] object-contain mx-auto" autoplay loop muted playsinline poster="assets/mockup-instagram-bmw-320i.png">
                   <source src="assets/demo-sync-feed.mp4" type="video/mp4">
                   <img src="assets/demo-sync-feed.gif" alt="Demonstração da sincronização do feed XML" class="w-full h-auto">
                 </video>
               </div>
-              <div class="flex items-center justify-between w-full px-2 text-[11px] text-slate-400 font-mono">
-                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Live Simulation Loop (10s)</span>
-                <span class="text-blue-400">Stream Parser ➔ Diff ➔ Meta Batch ➔ Ad Live</span>
+              <div class="flex items-center justify-between w-full px-2 text-[11px] text-typography-muted font-mono">
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span> Live Simulation Loop (10s)</span>
+                <span class="text-brand-primary font-bold">Stream Parser ➔ Diff ➔ Meta Batch ➔ Ad Live</span>
               </div>
             </div>
           </div>
@@ -378,83 +443,83 @@
 
     <!-- SLIDE 5: TAM, SAM, SOM -->
     <div class="slide hidden space-y-6" data-slide="5">
-      <span class="text-xs font-extrabold text-indigo-400 uppercase tracking-widest">Oportunidade de Mercado</span>
-      <h2 class="text-3xl md:text-5xl font-black text-white">Mercado Gigante & Pouco Atendido no Brasil</h2>
+      <span class="text-xs font-extrabold text-brand-primary uppercase tracking-widest">Oportunidade de Mercado</span>
+      <h2 class="text-3xl md:text-5xl font-black text-typography-heading">Mercado Gigante & Pouco Atendido no Brasil</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-3">
-          <div class="text-xs font-bold text-indigo-400 uppercase">TAM (Mercado Total)</div>
-          <div class="text-4xl font-black text-white font-mono">45.000+</div>
-          <p class="text-xs text-slate-400">Concessionárias e revendas ativas no Brasil (Fenauto / Fenabrave). Potencial de <strong>R$ 106M / ano</strong> em software de catálogo.</p>
+        <div class="bg-white border border-surface-border rounded-2xl p-6 space-y-3 shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-xs font-bold text-brand-primary uppercase">TAM (Mercado Total)</div>
+          <div class="text-4xl font-black text-typography-heading font-mono">45.000+</div>
+          <p class="text-xs text-typography-muted leading-relaxed">Concessionárias e revendas ativas no Brasil (Fenauto / Fenabrave). Potencial de <strong>R$ 106M / ano</strong> em software de catálogo.</p>
         </div>
-        <div class="bg-slate-900/90 border border-blue-500/30 rounded-2xl p-6 space-y-3">
-          <div class="text-xs font-bold text-blue-400 uppercase">SAM (Endereçável)</div>
-          <div class="text-4xl font-black text-white font-mono">22.000</div>
-          <p class="text-xs text-slate-400">Lojas que já investem em mídia paga digital e utilizam DMS homologado. Potencial de <strong>R$ 52M / ano</strong>.</p>
+        <div class="bg-white border border-blue-200 rounded-2xl p-6 space-y-3 shadow-sm hover:shadow-md transition-shadow">
+          <div class="text-xs font-bold text-blue-600 uppercase">SAM (Endereçável)</div>
+          <div class="text-4xl font-black text-brand-primary font-mono">22.000</div>
+          <p class="text-xs text-typography-muted leading-relaxed">Lojas que já investem em mídia paga digital e utilizam DMS homologado. Potencial de <strong>R$ 52M / ano</strong>.</p>
         </div>
-        <div class="bg-gradient-to-b from-slate-900 to-indigo-950 border border-indigo-500 rounded-2xl p-6 space-y-3">
-          <div class="text-xs font-bold text-indigo-300 uppercase">SOM (Objetivo 24 meses)</div>
-          <div class="text-4xl font-black text-green-400 font-mono">900 Lojas</div>
-          <p class="text-xs text-slate-300">4% do mercado qualificado via agências de tráfego e self-service. <strong>ARR Alvo: R$ 2,26 Milhões</strong>.</p>
+        <div class="bg-gradient-to-b from-white to-blue-50/70 border-2 border-brand-primary rounded-2xl p-6 space-y-3 shadow-md">
+          <div class="text-xs font-bold text-brand-primary uppercase">SOM (Objetivo 24 meses)</div>
+          <div class="text-4xl font-black text-brand-accent font-mono">900 Lojas</div>
+          <p class="text-xs text-typography-body leading-relaxed">4% do mercado qualificado via agências de tráfego e self-service. <strong class="text-typography-heading">ARR Alvo: R$ 2,26 Milhões</strong>.</p>
         </div>
       </div>
     </div>
 
     <!-- SLIDE 6: MODELO DE NEGÓCIOS -->
     <div class="slide hidden space-y-6" data-slide="6">
-      <span class="text-xs font-extrabold text-green-400 uppercase tracking-widest">Monetização & Planos</span>
-      <h2 class="text-3xl md:text-5xl font-black text-white">SaaS B2B com Receita Recorrente Previsível</h2>
+      <span class="text-xs font-extrabold text-brand-accent uppercase tracking-widest">Monetização & Planos</span>
+      <h2 class="text-3xl md:text-5xl font-black text-typography-heading">SaaS B2B com Receita Recorrente Previsível</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
-          <div class="font-bold text-white">Starter Catalog</div>
-          <div class="text-3xl font-black text-white font-mono">R$ 97<span class="text-xs text-slate-400">/mês</span></div>
-          <p class="text-xs text-slate-400">Até 50 veículos • 1 DMS • Sincronização diária • Lojas boutique.</p>
+        <div class="bg-white border border-surface-border rounded-2xl p-6 space-y-4 shadow-sm hover:shadow-md transition-shadow">
+          <div class="font-bold text-typography-heading text-lg">Starter Catalog</div>
+          <div class="text-3xl font-black text-typography-heading font-mono">R$ 97<span class="text-xs text-typography-muted font-sans font-normal">/mês</span></div>
+          <p class="text-xs text-typography-muted leading-relaxed">Até 50 veículos • 1 DMS • Sincronização diária • Lojas boutique.</p>
         </div>
-        <div class="bg-gradient-to-b from-blue-950 to-slate-900 border-2 border-blue-500 rounded-2xl p-6 space-y-4 relative">
-          <span class="absolute -top-3 left-6 bg-blue-500 text-white text-[10px] font-extrabold px-3 py-0.5 rounded-full">Carro-Chefe</span>
-          <div class="font-bold text-white">Pro Automotive</div>
-          <div class="text-3xl font-black text-white font-mono">R$ 197<span class="text-xs text-slate-400">/mês</span></div>
-          <p class="text-xs text-slate-300">Até 200 veículos • Sincronização a cada 15 min • Suporte prioritário WhatsApp • Mapeador De/Para.</p>
+        <div class="bg-gradient-to-b from-white to-blue-50/80 border-2 border-brand-primary rounded-2xl p-6 space-y-4 relative shadow-md">
+          <span class="absolute -top-3 left-6 bg-brand-primary text-white text-[10px] font-extrabold px-3.5 py-0.5 rounded-full shadow-sm">Carro-Chefe</span>
+          <div class="font-bold text-typography-heading text-lg">Pro Automotive</div>
+          <div class="text-3xl font-black text-brand-primary font-mono">R$ 197<span class="text-xs text-typography-muted font-sans font-normal">/mês</span></div>
+          <p class="text-xs text-typography-body leading-relaxed font-medium">Até 200 veículos • Sincronização a cada 15 min • Suporte prioritário WhatsApp • Mapeador De/Para.</p>
         </div>
-        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
-          <div class="font-bold text-white">Enterprise DAA</div>
-          <div class="text-3xl font-black text-white font-mono">R$ 397<span class="text-xs text-slate-400">/mês</span></div>
-          <p class="text-xs text-slate-400">Veículos ilimitados • Multi-lojas / Filiais • Sincronização em tempo real contínuo • SLA 99.9%.</p>
+        <div class="bg-white border border-surface-border rounded-2xl p-6 space-y-4 shadow-sm hover:shadow-md transition-shadow">
+          <div class="font-bold text-typography-heading text-lg">Enterprise DAA</div>
+          <div class="text-3xl font-black text-typography-heading font-mono">R$ 397<span class="text-xs text-typography-muted font-sans font-normal">/mês</span></div>
+          <p class="text-xs text-typography-muted leading-relaxed">Veículos ilimitados • Multi-lojas / Filiais • Sincronização em tempo real contínuo • SLA 99.9%.</p>
         </div>
       </div>
-      <div class="flex justify-between items-center text-xs text-slate-400 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
-        <span>📊 <strong>Margem Bruta</strong>: > 88%</span>
-        <span>💎 <strong>LTV Estimado</strong>: R$ 4.700</span>
-        <span>🎯 <strong>LTV / CAC Projetado</strong>: 10,4x</span>
+      <div class="flex justify-between items-center text-xs text-typography-body bg-white p-4 rounded-xl border border-surface-border shadow-sm">
+        <span>📊 <strong class="text-typography-heading">Margem Bruta</strong>: > 88%</span>
+        <span>💎 <strong class="text-typography-heading">LTV Estimado</strong>: R$ 4.700</span>
+        <span>🎯 <strong class="text-typography-heading">LTV / CAC Projetado</strong>: 10,4x</span>
       </div>
     </div>
 
     <!-- SLIDE 7: TECNOLOGIA & MOAT -->
     <div class="slide hidden space-y-6" data-slide="7">
-      <span class="text-xs font-extrabold text-blue-400 uppercase tracking-widest">Fosso Tecnológico</span>
-      <h2 class="text-3xl md:text-5xl font-black text-white">Engenharia Desenvolvida para Alta Escala</h2>
+      <span class="text-xs font-extrabold text-brand-primary uppercase tracking-widest">Fosso Tecnológico</span>
+      <h2 class="text-3xl md:text-5xl font-black text-typography-heading">Engenharia Desenvolvida para Alta Escala</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <h3 class="text-base font-bold text-white flex items-center gap-2">⚡ Streaming SAX Parser & Diff Engine</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+        <div class="bg-white p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-3">
+          <h3 class="text-base font-bold text-typography-heading flex items-center gap-2">⚡ Streaming SAX Parser & Diff Engine</h3>
+          <p class="text-xs text-typography-body leading-relaxed">
             Processa feeds XML de mais de 50MB (5.000+ veículos) em menos de 30 segundos, consumindo menos de 256MB de RAM. O motor de diff analisa apenas registros alterados, poupando custos de banco e computação.
           </p>
         </div>
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <h3 class="text-base font-bold text-white flex items-center gap-2">🚀 Caching de Borda em Redis (p50 &lt; 250ms)</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+        <div class="bg-white p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-3">
+          <h3 class="text-base font-bold text-typography-heading flex items-center gap-2">🚀 Caching de Borda em Redis (p50 &lt; 250ms)</h3>
+          <p class="text-xs text-typography-body leading-relaxed">
             O crawler da Meta consulta o feed público repetidamente. Nosso cache em memória compactado com GZIP responde em menos de 250 milissegundos com disponibilidade garantida de 99.9%.
           </p>
         </div>
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <h3 class="text-base font-bold text-white flex items-center gap-2">🏢 Multi-Tenancy com Isolamento Estrito</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
+        <div class="bg-white p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-3">
+          <h3 class="text-base font-bold text-typography-heading flex items-center gap-2">🏢 Multi-Tenancy com Isolamento Estrito</h3>
+          <p class="text-xs text-typography-body leading-relaxed">
             Arquitetura lógica em PostgreSQL com Prisma Client Extensions, assegurando que nenhum dado vaze entre concessionárias e audit log imutável de ações e acessos.
           </p>
         </div>
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <h3 class="text-base font-bold text-white flex items-center gap-2">🤖 Agente Autônomo de SEO com Gemini</h3>
-          <p class="text-xs text-slate-300 leading-relaxed">
-            O <code>ai-content-worker</code> pesquisa tendências do mercado automotivo e produz conteúdo técnico contínuo para o blog, dominando o ranking do Google e gerando leads inbound com CAC zero.
+        <div class="bg-white p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-3">
+          <h3 class="text-base font-bold text-typography-heading flex items-center gap-2">🤖 Agente Autônomo de SEO com Gemini</h3>
+          <p class="text-xs text-typography-body leading-relaxed">
+            O <code class="text-brand-primary font-mono font-bold bg-brand-primary-light px-1.5 py-0.5 rounded">ai-content-worker</code> pesquisa tendências do mercado automotivo e produz conteúdo técnico contínuo para o blog, dominando o ranking do Google e gerando leads inbound com CAC zero.
           </p>
         </div>
       </div>
@@ -462,88 +527,88 @@
 
     <!-- SLIDE 8: GO-TO-MARKET -->
     <div class="slide hidden space-y-6" data-slide="8">
-      <span class="text-xs font-extrabold text-amber-400 uppercase tracking-widest">Estratégia Go-To-Market</span>
-      <h2 class="text-3xl md:text-5xl font-black text-white">Canais de Distribuição de Alto Crescimento</h2>
+      <span class="text-xs font-extrabold text-brand-primary uppercase tracking-widest">Estratégia Go-To-Market</span>
+      <h2 class="text-3xl md:text-5xl font-black text-typography-heading">Canais de Distribuição de Alto Crescimento</h2>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-4 pt-4">
-        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-2">
-          <div class="text-2xl font-bold text-blue-400">01</div>
-          <h3 class="text-sm font-bold text-white">Parcerias com Agências</h3>
-          <p class="text-xs text-slate-400">Agências de tráfego automotivo sofrem com a operação. Oferecemos 20% de revenue share recorrente para quem plugar sua carteira.</p>
+        <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-2">
+          <div class="text-2xl font-black text-brand-primary font-mono">01</div>
+          <h3 class="text-sm font-bold text-typography-heading">Parcerias com Agências</h3>
+          <p class="text-xs text-typography-muted leading-relaxed">Agências de tráfego automotivo sofrem com a operação. Oferecemos 20% de revenue share recorrente para quem plugar sua carteira.</p>
         </div>
-        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-2">
-          <div class="text-2xl font-bold text-green-400">02</div>
-          <h3 class="text-sm font-bold text-white">Ecossistema de DMSs</h3>
-          <p class="text-xs text-slate-400">Integração oficial listada como app recomendado no AutoCerto, Altimus, Sisvag e BomControle.</p>
+        <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-2">
+          <div class="text-2xl font-black text-brand-accent font-mono">02</div>
+          <h3 class="text-sm font-bold text-typography-heading">Ecossistema de DMSs</h3>
+          <p class="text-xs text-typography-muted leading-relaxed">Integração oficial listada como app recomendado no AutoCerto, Altimus, Sisvag e BomControle.</p>
         </div>
-        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-2">
-          <div class="text-2xl font-bold text-indigo-400">03</div>
-          <h3 class="text-sm font-bold text-white">Product-Led Growth</h3>
-          <p class="text-xs text-slate-400">Teste grátis de 14 dias sem cartão no plano Pro. Lojista valida o feed na Meta no primeiro dia.</p>
+        <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-2">
+          <div class="text-2xl font-black text-indigo-600 font-mono">03</div>
+          <h3 class="text-sm font-bold text-typography-heading">Product-Led Growth</h3>
+          <p class="text-xs text-typography-muted leading-relaxed">Teste grátis de 14 dias sem cartão no plano Pro. Lojista valida o feed na Meta no primeiro dia.</p>
         </div>
-        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-2">
-          <div class="text-2xl font-bold text-red-400">04</div>
-          <h3 class="text-sm font-bold text-white">Inbound SEO Orgânico</h3>
-          <p class="text-xs text-slate-400">Centenas de artigos específicos gerados por IA capturando termos como "feed xml autocerto meta ads".</p>
+        <div class="bg-white p-5 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-2">
+          <div class="text-2xl font-black text-brand-price font-mono">04</div>
+          <h3 class="text-sm font-bold text-typography-heading">Inbound SEO Orgânico</h3>
+          <p class="text-xs text-typography-muted leading-relaxed">Centenas de artigos específicos gerados por IA capturando termos como "feed xml autocerto meta ads".</p>
         </div>
       </div>
     </div>
 
     <!-- SLIDE 9: COMPETITIVIDADE -->
     <div class="slide hidden space-y-6" data-slide="9">
-      <span class="text-xs font-extrabold text-blue-400 uppercase tracking-widest">Matriz Competitiva & Benchmarks</span>
-      <h2 class="text-3xl md:text-5xl font-black text-white">Por que o DriveSync Vence no Leilão</h2>
+      <span class="text-xs font-extrabold text-brand-primary uppercase tracking-widest">Matriz Competitiva & Benchmarks</span>
+      <h2 class="text-3xl md:text-5xl font-black text-typography-heading">Por que o DriveSync Vence no Leilão</h2>
       <div class="overflow-x-auto pt-2">
-        <table class="w-full text-left text-xs text-slate-300 border border-slate-800 rounded-xl">
-          <thead class="bg-slate-900 text-slate-200 uppercase font-bold text-[11px]">
+        <table class="w-full text-left text-xs text-typography-body border border-surface-border rounded-2xl overflow-hidden shadow-sm bg-white">
+          <thead class="bg-surface-muted text-typography-heading uppercase font-bold text-[11px] border-b border-surface-border">
             <tr>
-              <th class="p-3 sm:p-4">Recurso / Métrica Empírica</th>
-              <th class="p-3 sm:p-4">Processo Manual</th>
-              <th class="p-3 sm:p-4">Feeds Genéricos (Varejo)</th>
-              <th class="p-3 sm:p-4 text-blue-400 bg-blue-950/30">DriveSync (SaaS Auto)</th>
+              <th class="p-3.5 sm:p-4">Recurso / Métrica Empírica</th>
+              <th class="p-3.5 sm:p-4">Processo Manual</th>
+              <th class="p-3.5 sm:p-4">Feeds Genéricos (Varejo)</th>
+              <th class="p-3.5 sm:p-4 text-brand-primary bg-brand-primary-light">DriveSync (SaaS Auto)</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-slate-800">
-            <tr>
-              <td class="p-3 sm:p-4 font-bold text-white">Especialização Automotiva</td>
-              <td class="p-3 sm:p-4 text-red-400">❌ Nenhuma</td>
-              <td class="p-3 sm:p-4 text-amber-400">⚠️ Genérico (E-commerce)</td>
-              <td class="p-3 sm:p-4 font-bold text-green-400 bg-blue-950/20">✅ 100% Nativo (XSD DAA)</td>
+          <tbody class="divide-y divide-surface-border">
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="p-3.5 sm:p-4 font-bold text-typography-heading">Especialização Automotiva</td>
+              <td class="p-3.5 sm:p-4 text-brand-price font-semibold">❌ Nenhuma</td>
+              <td class="p-3.5 sm:p-4 text-amber-600 font-semibold">⚠️ Genérico (E-commerce)</td>
+              <td class="p-3.5 sm:p-4 font-bold text-brand-accent-dark bg-blue-50/40">✅ 100% Nativo (XSD DAA)</td>
             </tr>
-            <tr>
-              <td class="p-3 sm:p-4 font-bold text-white">Conectores DMS Brasileiros</td>
-              <td class="p-3 sm:p-4 text-red-400">❌ Inexistente</td>
-              <td class="p-3 sm:p-4 text-red-400">❌ Não homologado</td>
-              <td class="p-3 sm:p-4 font-bold text-green-400 bg-blue-950/20">✅ Linx, Syonet, NBS, AutoCerto...</td>
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="p-3.5 sm:p-4 font-bold text-typography-heading">Conectores DMS Brasileiros</td>
+              <td class="p-3.5 sm:p-4 text-brand-price font-semibold">❌ Inexistente</td>
+              <td class="p-3.5 sm:p-4 text-brand-price font-semibold">❌ Não homologado</td>
+              <td class="p-3.5 sm:p-4 font-bold text-brand-accent-dark bg-blue-50/40">✅ Linx, Syonet, NBS, AutoCerto...</td>
             </tr>
-            <tr>
-              <td class="p-3 sm:p-4 font-bold text-white">Custo Médio por Lead (CPL)</td>
-              <td class="p-3 sm:p-4 text-red-400">$42,50 (~R$ 212)</td>
-              <td class="p-3 sm:p-4 text-amber-400">$35,00 – $45,00</td>
-              <td class="p-3 sm:p-4 font-bold text-emerald-400 bg-blue-950/20">✅ $22,58 (-47% de CPL)</td>
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="p-3.5 sm:p-4 font-bold text-typography-heading">Custo Médio por Lead (CPL)</td>
+              <td class="p-3.5 sm:p-4 text-brand-price font-semibold">$42,50 (~R$ 212)</td>
+              <td class="p-3.5 sm:p-4 text-amber-600 font-semibold">$35,00 – $45,00</td>
+              <td class="p-3.5 sm:p-4 font-bold text-brand-accent-dark bg-blue-50/40">✅ $22,58 (-47% de CPL)</td>
             </tr>
-            <tr>
-              <td class="p-3 sm:p-4 font-bold text-white">Custo por Veículo Vendido</td>
-              <td class="p-3 sm:p-4 text-red-400">$469 (~R$ 2.345)</td>
-              <td class="p-3 sm:p-4 text-amber-400">$400+ por unidade</td>
-              <td class="p-3 sm:p-4 font-bold text-emerald-400 bg-blue-950/20">✅ $259 (-44,8% no CAC)</td>
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="p-3.5 sm:p-4 font-bold text-typography-heading">Custo por Veículo Vendido</td>
+              <td class="p-3.5 sm:p-4 text-brand-price font-semibold">$469 (~R$ 2.345)</td>
+              <td class="p-3.5 sm:p-4 text-amber-600 font-semibold">$400+ por unidade</td>
+              <td class="p-3.5 sm:p-4 font-bold text-brand-accent-dark bg-blue-50/40">✅ $259 (-44,8% no CAC)</td>
             </tr>
-            <tr>
-              <td class="p-3 sm:p-4 font-bold text-white">Latência de Expurgo</td>
-              <td class="p-3 sm:p-4 text-red-400">❌ 48h a 72h (Fim de semana cego)</td>
-              <td class="p-3 sm:p-4 text-amber-400">⚠️ 12h a 24h (Lote noturno)</td>
-              <td class="p-3 sm:p-4 font-bold text-green-400 bg-blue-950/20">✅ &lt; 15 min (Event-Driven APIs)</td>
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="p-3.5 sm:p-4 font-bold text-typography-heading">Latência de Expurgo</td>
+              <td class="p-3.5 sm:p-4 text-brand-price font-semibold">❌ 48h a 72h (Fim de semana cego)</td>
+              <td class="p-3.5 sm:p-4 text-amber-600 font-semibold">⚠️ 12h a 24h (Lote noturno)</td>
+              <td class="p-3.5 sm:p-4 font-bold text-brand-accent-dark bg-blue-50/40">✅ &lt; 15 min (Event-Driven APIs)</td>
             </tr>
-            <tr>
-              <td class="p-3 sm:p-4 font-bold text-white">Evasão Orçamentária de Mídia</td>
-              <td class="p-3 sm:p-4 text-red-400">💸 Até 28,8% (R$ 5.760/mês)</td>
-              <td class="p-3 sm:p-4 text-amber-400">⚠️ ~15% de perda em cliques</td>
-              <td class="p-3 sm:p-4 font-bold text-emerald-400 bg-blue-950/20">✅ 0% (Estancamento Total)</td>
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="p-3.5 sm:p-4 font-bold text-typography-heading">Evasão Orçamentária de Mídia</td>
+              <td class="p-3.5 sm:p-4 text-brand-price font-semibold">💸 Até 28,8% (R$ 5.760/mês)</td>
+              <td class="p-3.5 sm:p-4 text-amber-600 font-semibold">⚠️ ~15% de perda em cliques</td>
+              <td class="p-3.5 sm:p-4 font-bold text-brand-accent-dark bg-blue-50/40">✅ 0% (Estancamento Total)</td>
             </tr>
-            <tr>
-              <td class="p-3 sm:p-4 font-bold text-white">Custo Mensal da Solução</td>
-              <td class="p-3 sm:p-4 text-red-400">R$ 1.500+ em horas</td>
-              <td class="p-3 sm:p-4 text-red-400">U$ 150 – U$ 500 (em dólar)</td>
-              <td class="p-3 sm:p-4 font-bold text-green-400 bg-blue-950/20">✅ A partir de R$ 97 / mês</td>
+            <tr class="hover:bg-slate-50/70 transition-colors">
+              <td class="p-3.5 sm:p-4 font-bold text-typography-heading">Custo Mensal da Solução</td>
+              <td class="p-3.5 sm:p-4 text-brand-price font-semibold">R$ 1.500+ em horas</td>
+              <td class="p-3.5 sm:p-4 text-brand-price font-semibold">U$ 150 – U$ 500 (em dólar)</td>
+              <td class="p-3.5 sm:p-4 font-bold text-brand-accent-dark bg-blue-50/40">✅ A partir de R$ 97 / mês</td>
             </tr>
           </tbody>
         </table>
@@ -552,12 +617,12 @@
 
     <!-- SLIDE 10: TRAÇÃO & VALIDAÇÃO -->
     <div class="slide hidden space-y-6" data-slide="10">
-      <span class="text-xs font-extrabold text-green-400 uppercase tracking-widest">Estágio de Desenvolvimento</span>
-      <h2 class="text-3xl md:text-5xl font-black text-white">Base Tecnológica Pronta & Testada</h2>
+      <span class="text-xs font-extrabold text-brand-accent uppercase tracking-widest">Estágio de Desenvolvimento</span>
+      <h2 class="text-3xl md:text-5xl font-black text-typography-heading">Base Tecnológica Pronta & Testada</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4">
-          <h3 class="text-sm font-bold text-white uppercase tracking-wider">Entregas Concluídas (Set/2026):</h3>
-          <ul class="space-y-2.5 text-xs text-slate-300">
+        <div class="bg-white p-6 rounded-2xl border border-surface-border shadow-sm space-y-4">
+          <h3 class="text-sm font-bold text-typography-heading uppercase tracking-wider">Entregas Concluídas (Set/2026):</h3>
+          <ul class="space-y-2.5 text-xs text-typography-body">
             <li class="flex items-center gap-2">✅ Ingestão de XML/JSON com SAX streaming e Diff Engine.</li>
             <li class="flex items-center gap-2">✅ API REST multi-tenant e gerador de feed Meta Ads DAA.</li>
             <li class="flex items-center gap-2">✅ Frontend SPA com simulador de anúncios e tabela de pendências.</li>
@@ -565,18 +630,18 @@
             <li class="flex items-center gap-2">✅ Integração de pagamentos e assinaturas Stripe.</li>
           </ul>
         </div>
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-center">
-          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-            <span class="text-xs text-slate-400">Código & Governança</span>
-            <span class="text-xs font-mono font-bold text-green-400">7 Repositórios Ativos</span>
+        <div class="bg-white p-6 rounded-2xl border border-surface-border shadow-sm space-y-4 flex flex-col justify-center">
+          <div class="flex items-center justify-between border-b border-surface-border pb-3">
+            <span class="text-xs text-typography-muted">Código & Governança</span>
+            <span class="text-xs font-mono font-bold text-brand-accent-dark bg-brand-accent-light px-2.5 py-1 rounded-md border border-brand-accent-border">7 Repositórios Ativos</span>
           </div>
-          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-            <span class="text-xs text-slate-400">Integração Contínua</span>
-            <span class="text-xs font-mono font-bold text-blue-400">100% CI/CD Automatizado</span>
+          <div class="flex items-center justify-between border-b border-surface-border pb-3">
+            <span class="text-xs text-typography-muted">Integração Contínua</span>
+            <span class="text-xs font-mono font-bold text-brand-primary bg-brand-primary-light px-2.5 py-1 rounded-md border border-brand-primary-border">100% CI/CD Automatizado</span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-xs text-slate-400">Conformidade Legal</span>
-            <span class="text-xs font-mono font-bold text-indigo-400">LGPD & Akoma Ntoso</span>
+            <span class="text-xs text-typography-muted">Conformidade Legal</span>
+            <span class="text-xs font-mono font-bold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-md border border-indigo-200">LGPD & Akoma Ntoso</span>
           </div>
         </div>
       </div>
@@ -584,59 +649,62 @@
 
     <!-- SLIDE 11: ROADMAP FUTURO -->
     <div class="slide hidden space-y-6" data-slide="11">
-      <span class="text-xs font-extrabold text-indigo-400 uppercase tracking-widest">Visão de Futuro</span>
-      <h2 class="text-3xl md:text-5xl font-black text-white">Evolução do Produto & Multicanalidade</h2>
+      <span class="text-xs font-extrabold text-brand-primary uppercase tracking-widest">Visão de Futuro</span>
+      <h2 class="text-3xl md:text-5xl font-black text-typography-heading">Evolução do Produto & Multicanalidade</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <span class="text-xs font-bold text-blue-400">Q4 2026</span>
-          <h3 class="text-base font-bold text-white">Google Vehicle Ads (GVA)</h3>
-          <p class="text-xs text-slate-400">Expandir o mesmo feed para a vitrine de veículos no topo do Google Shopping e Google Maps.</p>
+        <div class="bg-white p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-3">
+          <span class="text-xs font-bold text-brand-primary uppercase font-mono">Q4 2026</span>
+          <h3 class="text-base font-bold text-typography-heading">Google Vehicle Ads (GVA)</h3>
+          <p class="text-xs text-typography-muted leading-relaxed">Expandir o mesmo feed para a vitrine de veículos no topo do Google Shopping e Google Maps.</p>
         </div>
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <span class="text-xs font-bold text-indigo-400">Q1 2027</span>
-          <h3 class="text-base font-bold text-white">TikTok Automotive Feed</h3>
-          <p class="text-xs text-slate-400">Geração dinâmica de carrossel de vídeos curtos no TikTok para o público jovem e primeiro carro.</p>
+        <div class="bg-white p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-3">
+          <span class="text-xs font-bold text-indigo-600 uppercase font-mono">Q1 2027</span>
+          <h3 class="text-base font-bold text-typography-heading">TikTok Automotive Feed</h3>
+          <p class="text-xs text-typography-muted leading-relaxed">Geração dinâmica de carrossel de vídeos curtos no TikTok para o público jovem e primeiro carro.</p>
         </div>
-        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-          <span class="text-xs font-bold text-green-400">Q2 2027</span>
-          <h3 class="text-base font-bold text-white">Expansão México & Colômbia</h3>
-          <p class="text-xs text-slate-400">Internacionalização para os maiores mercados de seminovos da América Latina com a mesma arquitetura.</p>
+        <div class="bg-white p-6 rounded-2xl border border-surface-border shadow-sm hover:shadow-md transition-shadow space-y-3">
+          <span class="text-xs font-bold text-brand-accent uppercase font-mono">Q2 2027</span>
+          <h3 class="text-base font-bold text-typography-heading">Expansão México & Colômbia</h3>
+          <p class="text-xs text-typography-muted leading-relaxed">Internacionalização para os maiores mercados de seminovos da América Latina com a mesma arquitetura.</p>
         </div>
       </div>
     </div>
 
     <!-- SLIDE 12: CAPTAÇÃO & THE ASK -->
     <div class="slide hidden space-y-6" data-slide="12">
-      <span class="text-xs font-extrabold text-red-400 uppercase tracking-widest">Oportunidade de Investimento</span>
-      <h2 class="text-3xl md:text-5xl font-black text-white">Captação & Uso de Recursos</h2>
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-extrabold text-brand-price uppercase tracking-widest">Oportunidade de Investimento</span>
+        <span class="text-xs font-mono bg-brand-primary-light text-brand-primary px-3 py-1 rounded-full border border-brand-primary-border font-bold">Rodada Pré-Seed R$ 1.000.000</span>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-black text-typography-heading">Captação & Uso de Recursos</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
         <div class="space-y-4">
-          <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
-            <h3 class="text-sm font-bold text-slate-300 uppercase">Alocação de Capital (Seed / Pre-Seed)</h3>
+          <div class="bg-white p-6 rounded-2xl border border-surface-border shadow-sm space-y-3">
+            <h3 class="text-sm font-bold text-typography-heading uppercase tracking-wider">Alocação de Capital (Seed / Pre-Seed)</h3>
             <div class="space-y-2 text-xs">
-              <div class="flex justify-between items-center"><span class="text-white font-bold">Vendas & Go-To-Market (Inside Sales)</span><span class="font-mono text-blue-400 font-bold">45%</span></div>
-              <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-blue-500 h-full w-[45%]"></div></div>
+              <div class="flex justify-between items-center"><span class="text-typography-body font-bold">Vendas & Go-To-Market (Inside Sales)</span><span class="font-mono text-brand-primary font-bold">45%</span></div>
+              <div class="w-full bg-surface-muted h-2 rounded-full overflow-hidden border border-surface-border"><div class="bg-brand-primary h-full w-[45%]"></div></div>
               
-              <div class="flex justify-between items-center pt-2"><span class="text-white font-bold">Engenharia & Novos Conectores</span><span class="font-mono text-green-400 font-bold">35%</span></div>
-              <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-green-500 h-full w-[35%]"></div></div>
+              <div class="flex justify-between items-center pt-2"><span class="text-typography-body font-bold">Engenharia & Novos Conectores</span><span class="font-mono text-brand-accent font-bold">35%</span></div>
+              <div class="w-full bg-surface-muted h-2 rounded-full overflow-hidden border border-surface-border"><div class="bg-brand-accent h-full w-[35%]"></div></div>
               
-              <div class="flex justify-between items-center pt-2"><span class="text-white font-bold">Operações & Customer Success</span><span class="font-mono text-amber-400 font-bold">20%</span></div>
-              <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-amber-500 h-full w-[20%]"></div></div>
+              <div class="flex justify-between items-center pt-2"><span class="text-typography-body font-bold">Operações & Customer Success</span><span class="font-mono text-amber-600 font-bold">20%</span></div>
+              <div class="w-full bg-surface-muted h-2 rounded-full overflow-hidden border border-surface-border"><div class="bg-amber-500 h-full w-[20%]"></div></div>
             </div>
           </div>
         </div>
-        <div class="bg-gradient-to-br from-slate-900 to-blue-950 p-6 rounded-2xl border border-blue-500/40 flex flex-col justify-between space-y-6">
+        <div class="bg-gradient-to-br from-white to-blue-50/70 p-6 rounded-2xl border-2 border-brand-primary shadow-md flex flex-col justify-between space-y-6">
           <div>
-            <h3 class="text-base font-bold text-white mb-2">Metas em 12 Meses:</h3>
-            <ul class="space-y-2 text-xs text-slate-300">
+            <h3 class="text-base font-black text-typography-heading mb-3">Metas em 12 Meses:</h3>
+            <ul class="space-y-2.5 text-xs text-typography-body">
               <li class="flex items-center gap-2">🎯 <strong>450 Concessionárias Ativas</strong></li>
               <li class="flex items-center gap-2">🎯 <strong>R$ 95.000 MRR</strong> (Break-even atingido)</li>
               <li class="flex items-center gap-2">🎯 <strong>3 Parcerias Oficiais de DMS</strong></li>
             </ul>
           </div>
-          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 text-center">
-            <p class="text-xs text-slate-400 font-mono">Contato para Investimentos & Parcerias:</p>
-            <p class="text-sm font-bold text-white mt-1">contato@autocatalogo.com.br</p>
+          <div class="p-4 rounded-xl bg-white border border-surface-border shadow-sm text-center">
+            <p class="text-xs text-typography-muted font-mono">Contato para Investimentos & Parcerias:</p>
+            <p class="text-sm font-bold text-brand-primary mt-1">contato@autocatalogo.com.br</p>
           </div>
         </div>
       </div>
@@ -645,20 +713,20 @@
   </main>
 
   <!-- Rodapé de Controles e Atalhos -->
-  <footer class="w-full border-t border-slate-900 bg-slate-950 px-4 sm:px-6 py-3 flex items-center justify-between text-xs text-slate-500 z-20">
-    <div class="flex items-center gap-2">
-      <span class="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-      <span class="font-medium text-slate-400">DriveSync • saas-auto-catalogo</span>
+  <footer class="w-full border-t border-surface-border bg-white px-4 sm:px-8 py-3.5 flex items-center justify-between text-xs text-typography-muted z-20 shadow-inner">
+    <div class="flex items-center gap-2.5">
+      <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-accent animate-pulse"></span>
+      <span class="font-bold text-typography-body">DriveSync • saas-auto-catalogo</span>
     </div>
-    <div class="flex items-center gap-4 text-slate-400">
-      <span class="sm:hidden text-[11px] text-slate-500">Deslize ↔ para navegar</span>
-      <span class="hidden sm:inline">Navegação: <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">→</kbd> ou <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">Espaço</kbd> • Tela cheia: <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">F</kbd></span>
-      <span class="hidden md:flex items-center gap-4 border-l border-slate-800 pl-4">
-        <a href="exports/DriveSync-Pitch-Deck-2026.pdf" download class="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-bold transition">
+    <div class="flex items-center gap-4 text-typography-muted">
+      <span class="sm:hidden text-[11px]">Deslize ↔ para navegar</span>
+      <span class="hidden sm:inline">Navegação: <kbd class="px-1.5 py-0.5 bg-surface-muted border border-surface-border rounded text-typography-body font-mono text-[11px]">←</kbd> <kbd class="px-1.5 py-0.5 bg-surface-muted border border-surface-border rounded text-typography-body font-mono text-[11px]">→</kbd> ou <kbd class="px-1.5 py-0.5 bg-surface-muted border border-surface-border rounded text-typography-body font-mono text-[11px]">Espaço</kbd> • Tela cheia: <kbd class="px-1.5 py-0.5 bg-surface-muted border border-surface-border rounded text-typography-body font-mono text-[11px]">F</kbd></span>
+      <span class="hidden md:flex items-center gap-4 border-l border-surface-border pl-4">
+        <a href="exports/DriveSync-Pitch-Deck-2026.pdf" download class="flex items-center gap-1.5 text-brand-accent-dark hover:text-brand-accent font-bold transition">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
           PDF Deck 16:9
         </a>
-        <a href="exports/DriveSync-One-Pager.pdf" download class="flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-bold transition">
+        <a href="exports/DriveSync-One-Pager.pdf" download class="flex items-center gap-1.5 text-brand-accent-dark hover:text-brand-accent font-bold transition">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
           One-Pager
         </a>
@@ -820,8 +888,8 @@
         const view = document.getElementById(`tab-view-${key}`);
 
         if (key === tabKey) {
-          btn?.classList.remove('bg-slate-800', 'text-slate-300', 'hover:bg-slate-700');
-          btn?.classList.add('bg-blue-600', 'text-white', 'shadow-md', 'shadow-blue-600/30');
+          btn?.classList.remove('bg-white', 'text-typography-body', 'hover:bg-surface-muted', 'border', 'border-surface-border');
+          btn?.classList.add('bg-brand-primary', 'text-white', 'shadow-md', 'shadow-blue-600/20');
           desc?.classList.remove('hidden');
           view?.classList.remove('hidden');
 
@@ -833,8 +901,8 @@
             }
           }
         } else {
-          btn?.classList.remove('bg-blue-600', 'text-white', 'shadow-md', 'shadow-blue-600/30');
-          btn?.classList.add('bg-slate-800', 'text-slate-300', 'hover:bg-slate-700');
+          btn?.classList.remove('bg-brand-primary', 'text-white', 'shadow-md', 'shadow-blue-600/20');
+          btn?.classList.add('bg-white', 'text-typography-body', 'hover:bg-surface-muted', 'border', 'border-surface-border');
           desc?.classList.add('hidden');
           view?.classList.add('hidden');
         }
@@ -888,9 +956,9 @@
   </script>
 
   <!-- Modal de Zoom em Alta Resolução (Lightroom) -->
-  <div id="mockupModal" onclick="closeMockupZoom()" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4 sm:p-8 cursor-zoom-out">
+  <div id="mockupModal" onclick="closeMockupZoom()" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4 sm:p-8 cursor-zoom-out">
     <div class="relative max-w-5xl max-h-[92vh] flex flex-col items-center" onclick="event.stopPropagation()">
-      <button onclick="closeMockupZoom()" class="absolute -top-10 right-0 text-slate-400 hover:text-white text-xs font-mono font-bold flex items-center gap-1.5 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">
+      <button onclick="closeMockupZoom()" class="absolute -top-10 right-0 text-white hover:text-slate-200 text-xs font-mono font-bold flex items-center gap-1.5 bg-slate-900/90 px-3.5 py-1 rounded-full border border-slate-700 shadow-md">
         <span>Fechar (ESC)</span>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
