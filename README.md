@@ -8,7 +8,7 @@ Repositório oficial de relações com investidores, tese de investimento e mate
 ---
 
 ## 🧭 Resumo Executivo
-> **"Para concessionárias e revendas de seminovos que perdem milhares de reais em anúncios manuais e carros já vendidos, o DriveSync é a plataforma SaaS que conecta automaticamente os DMSs de pátio ao Meta Automotive Inventory Ads (DAA) em 3 minutos, reduzindo o Custo por Lead em até 38% e eliminando 100% do desperdício operacional."**
+> **"Para concessionárias e revendas de seminovos que perdem milhares de reais em anúncios manuais e carros já vendidos, o DriveSync é a plataforma SaaS que conecta automaticamente os DMSs de pátio ao Meta Automotive Inventory Ads (DAA) em 3 minutos, reduzindo o Custo por Lead em 29% a 47% (média de -47%), reduzindo o custo por carro vendido em 44,8% e eliminando 100% do inventário fantasma."**
 
 ---
 
@@ -27,6 +27,7 @@ A apresentação visual interativa dos 12 slides foi desenvolvida com Tailwind C
 ├── index.html                     # Apresentação interativa dos 12 slides (Tailwind CSS)
 ├── slides/
 │   └── pitch_deck_drivesync.md    # Roteiro textual completo, notas de oratória e métricas
+├── Sincronização DMS e Meta Ads.md # Base de conhecimento com benchmarks empíricos do setor
 ├── .github/
 │   └── workflows/
 │       └── deploy-pages.yml       # Deploy automático no GitHub Pages a cada push na main
@@ -36,17 +37,22 @@ A apresentação visual interativa dos 12 slides foi desenvolvida com Tailwind C
 
 ---
 
-## 📊 Principais Indicadores do Negócio
+## 📊 Principais Indicadores & Benchmarks Empíricos do Negócio
 
-| Métrica | Valor | Descrição |
+| Métrica | Valor / Benchmark | Impacto Operacional / Fonte |
 |---|---|---|
+| **Redução de CPL Médio** | **-29% a -47% (média -47%)** | De $42,50 para $22,58 com AIA sincronizado ao DMS (Meta Benchmarks) |
+| **Custo por Carro Vendido** | **-44,8% ($259 vs $469)** | Redução direta de R$ 1.050+ no custo de aquisição por veículo comercializado |
+| **Aumento no Volume de Leads** | **3,4x (+240%)** | De 1,0x para 3,4x mais conversões com o mesmo investimento em mídia |
+| **Taxa de Conversão (CVR)** | **7,80% (vs 2,30%)** | VDP canônica e dados exatos de preço, km e fotos eliminam atrito |
+| **Eliminação de Inventário Fantasma**| **100% Supressão** | Estanca desperdício de R$ 2.000 a R$ 5.000/mês em carros já faturados |
+| **Taxa de Cliques (CTR)** | **1,80% a 4,50% (vs 0,90%)** | Relevância contextual no leilão (+100% a +400% de CTR no link) |
+| **Economia Operacional** | **~40h / mês por loja** | Fim do upload e cadastro manual repetitivo de fotos e preços |
 | **TAM (Brasil)** | **R$ 106M / ano** | +45.000 revendas e concessionárias ativas (Fenauto / Fenabrave) |
 | **SAM** | **R$ 52M / ano** | ~22.000 revendas que já investem em mídia paga digital |
-| **SOM (24 meses)** | **R$ 2,26M ARR** | 900 concessionárias ativas capturadas |
-| **Margem Bruta** | **> 88%** | Modelo SaaS B2B puro com infraestrutura em Node/Postgres/Redis |
+| **SOM (24 meses)** | **R$ 2,26M ARR** | 900 concessionárias ativas capturadas com ticket médio de R$ 210/mês |
+| **Margem Bruta SaaS** | **> 88%** | Modelo SaaS B2B puro com infraestrutura em Node/Postgres/Redis |
 | **LTV / CAC** | **10,4x** | LTV R$ 4.700 vs CAC R$ 450 (Inbound IA + Parcerias de Agências) |
-| **Redução de CPL** | **-38%** | Redução consistente do Custo por Lead com anúncios dinâmicos |
-| **Economia Operacional**| **~40h/mês** | Eliminação de cadastros manuais repetitivos por loja |
 
 ---
 
