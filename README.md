@@ -55,6 +55,20 @@ Processo de captação da rodada Pré-Seed da DriveSync, com base de inteligênc
 
 ---
 
+## 📈 Dataroom Financeiro & Projeções (24 Meses)
+
+Projeções detalhadas mês a mês, dinâmica de unit economics, cohorts e uso de recursos da rodada Pré-Seed, consolidados na pasta [`financials/`](./financials/):
+
+| Documento | Formato | Conteúdo |
+|---|---|---|
+| [**Relatório do Modelo Financeiro**](./financials/modelo-financeiro-24-meses.md) | Relatório Executivo Markdown | Análise exaustiva dos 24 meses: DRE projetada, fluxo de caixa, cohorts de churn (<2,5%) e NRR (>105%), mix de canais e análise de sensibilidade |
+| [**Projeção Mensal M01-M24 (Planilha)**](./financials/drivesync-projecao-financeira-24m.csv) | CSV Universal (UTF-8 / `;`) | Planilha tabular completa mês a mês com clientes, MRR por plano, ARR, impostos, COGS, OPEX, EBITDA e fluxo de caixa acumulado |
+| [**Unit Economics & Mix de Canais**](./financials/unit-economics-e-canais.csv) | CSV Paramétrico (UTF-8 / `;`) | CAC, LTV, Payback, ciclo de vendas e taxas de conversão por canal (Inbound IA, Agências B2B2B e Outbound) |
+| [**Alocação de Capital & Headcount**](./financials/alocacao-capital-headcount.csv) | CSV Orçamentário (UTF-8 / `;`) | Use of proceeds de R$ 1.000.000 (GTM 45%, P&D 35%, Operações 10%, Reserva 10%) e evolução de quadro de colaboradores |
+| [**Guia do Dataroom (README)**](./financials/README.md) | Guia de Navegação | Instruções de importação em Excel e Google Sheets e síntese dos indicadores-chave |
+
+---
+
 ## 📑 Estrutura do Repositório
 
 ```text
@@ -66,6 +80,12 @@ Processo de captação da rodada Pré-Seed da DriveSync, com base de inteligênc
 │   ├── DriveSync-One-Pager.pdf        # One-pager executivo em A4 (1 página)
 │   ├── print-deck.html                # Template de impressão do deck (16in × 9in)
 │   └── one-pager.html                 # Template de impressão do one-pager (Tailwind, A4)
+├── financials/                    # Projeções financeiras de 24 meses e Dataroom Pré-Seed
+│   ├── README.md                      # Guia executivo e sumário de métricas do Dataroom
+│   ├── modelo-financeiro-24-meses.md  # Relatório analítico completo (DRE, Fluxo de Caixa, NRR)
+│   ├── drivesync-projecao-financeira-24m.csv # Planilha tabular detalhada mês a mês (M01-M24)
+│   ├── unit-economics-e-canais.csv    # CAC, LTV, Payback e canais (Inbound, Agências, Outbound)
+│   └── alocacao-capital-headcount.csv # Use of proceeds de R$ 1M e headcount roadmap
 ├── Sincronização DMS e Meta Ads.md # Benchmarks empíricos de CPL, CTR, CPC e conversão
 ├── Inventário Fantasma em Concessionárias.md # Diagnóstico técnico, latência de fim de semana e evasão orçamentária
 ├── .github/
@@ -80,7 +100,6 @@ Processo de captação da rodada Pré-Seed da DriveSync, com base de inteligênc
 │   ├── demo-sync-feed.gif               # Versão em GIF animado para fallback e compartilhamento
 │   ├── car-bmw-320i.jpg                 # Fotografia de alta resolução do veículo BMW 320i M Sport
 │   └── car-porsche-macan.jpg            # Fotografia de alta resolução do veículo Porsche Macan GTS
-├── financials/                    # Projeções de ARR, Unit Economics e Cap Table
 ├── fundraising/                   # Processo de captação da rodada Pré-Seed
 │   ├── pipeline-investidores.csv          # CRM do funil: 36 anjos + 11 fundos + 5 redes/veículos
 │   ├── investors-crm.md                   # Governança do funil (Lead ➔ Term Sheet) e métricas
