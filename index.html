@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pitch Deck — DriveSync (SaaS Auto Catálogo)</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <style>
+    .slide-enter {
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px) scale(0.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between select-none antialiased">
+
+  <!-- Header Superior -->
+  <header class="w-full border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md px-6 py-3 flex items-center justify-between z-20">
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-black text-white text-sm shadow-md shadow-blue-500/20">
+        DS
+      </div>
+      <div>
+        <span class="font-extrabold text-white text-sm tracking-wide">DriveSync</span>
+        <span class="text-xs text-slate-400 ml-2 border-l border-slate-700 pl-2">Investor Pitch Deck 2026</span>
+      </div>
+    </div>
+
+    <!-- Indicador de Slide -->
+    <div class="flex items-center gap-3">
+      <span id="slideCounter" class="text-xs font-mono font-bold text-slate-400 bg-slate-800 px-3 py-1 rounded-full">
+        Slide 1 / 12
+      </span>
+      <div class="flex items-center gap-1.5">
+        <button id="prevBtn" onclick="prevSlide()" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button id="nextBtn" onclick="nextSlide()" class="p-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition shadow-lg shadow-blue-600/30 disabled:opacity-30 disabled:cursor-not-allowed">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Área Central do Slide -->
+  <main class="flex-1 max-w-6xl w-full mx-auto p-6 md:p-10 flex flex-col justify-center">
+    
+    <!-- SLIDE 1: CAPA -->
+    <div class="slide slide-enter space-y-6" data-slide="1">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs font-extrabold">
+        <span>🚀 SaaS B2B Automotivo • Meta Ads DAA</span>
+      </div>
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white leading-tight">
+        Conecte o pátio da sua loja ao <br>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-400 to-red-400">
+          Instagram & Facebook em Tempo Real
+        </span>
+      </h1>
+      <p class="text-lg md:text-xl text-slate-300 max-w-3xl leading-relaxed">
+        O <strong>DriveSync</strong> é a infraestrutura que sincroniza automaticamente os DMSs (AutoCerto, Altimus, Sisvag) com o <strong>Meta Automotive Ads (DAA)</strong>, eliminando o desperdício em carros já vendidos e reduzindo o CPL em até 38%.
+      </p>
+      <div class="pt-6 flex flex-wrap items-center gap-4 text-xs text-slate-400">
+        <span class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg">⚡ Setup em 3 minutos</span>
+        <span class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg">🛡️ SLA 99.9% de feed</span>
+        <span class="bg-slate-900 border border-slate-800 px-3 py-1.5 rounded-lg">📉 -38% Custo por Lead</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: O PROBLEMA -->
+    <div class="slide hidden space-y-6" data-slide="2">
+      <span class="text-xs font-extrabold text-red-400 uppercase tracking-widest">O Gargalo do Varejo Automotivo</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Milhares de reais queimados em carros já vendidos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+        <div class="bg-slate-900/90 border border-red-500/20 rounded-2xl p-6 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center font-bold text-lg">💸</div>
+          <h3 class="text-lg font-bold text-white">Desperdício de Mídia</h3>
+          <p class="text-sm text-slate-300">Carros vendidos na sexta continuam gerando cliques caros no fim de semana. R$ 2.000 a R$ 5.000/mês jogados fora.</p>
+        </div>
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold text-lg">⏳</div>
+          <h3 class="text-lg font-bold text-white">+40h / Mês de Trabalho Manual</h3>
+          <p class="text-sm text-slate-300">Agências e operadores passam horas cadastrando fotos, preços e dados de forma repetitiva no Gerenciador de Anúncios.</p>
+        </div>
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-lg">😡</div>
+          <h3 class="text-lg font-bold text-white">Leads Frustrados no WhatsApp</h3>
+          <p class="text-sm text-slate-300">O comprador clica no anúncio, manda mensagem no WhatsApp e ouve: "Esse carro já foi vendido ontem". Experiência destruída.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: A SOLUÇÃO -->
+    <div class="slide hidden space-y-6" data-slide="3">
+      <span class="text-xs font-extrabold text-green-400 uppercase tracking-widest">A Solução DriveSync</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Automação Inteligente de Catálogo Automotivo</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+        <div class="space-y-4">
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="w-8 h-8 rounded-lg bg-green-500/20 text-green-400 flex items-center justify-center font-black shrink-0">1</div>
+            <div>
+              <h4 class="font-bold text-white text-base">Plug-and-Play em 3 Minutos</h4>
+              <p class="text-xs text-slate-300">Basta colar o link do feed XML/JSON do DMS existente (AutoCerto, Altimus, Sisvag, BomControle, Webmotors).</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="w-8 h-8 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center font-black shrink-0">2</div>
+            <div>
+              <h4 class="font-bold text-white text-base">Streaming Parser & Normalização DAA</h4>
+              <p class="text-xs text-slate-300">Traduz qualquer formato caótico para o rigoroso padrão XSD Meta Automotive Inventory Ads com validação prévia de erros.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-4 p-4 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="w-8 h-8 rounded-lg bg-indigo-500/20 text-indigo-400 flex items-center justify-center font-black shrink-0">3</div>
+            <div>
+              <h4 class="font-bold text-white text-base">Sincronização Contínua em Tempo Real</h4>
+              <p class="text-xs text-slate-300">Carro vendido no pátio? É removido do catálogo e o anúncio é desativado na Meta imediatamente.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-slate-900 to-blue-950/40 p-6 rounded-2xl border border-blue-500/30 flex flex-col justify-center text-center space-y-4">
+          <div class="text-5xl font-black text-white font-mono">-38%</div>
+          <p class="text-sm font-bold text-blue-300 uppercase tracking-wider">Custo Médio por Lead (CPL)</p>
+          <div class="text-3xl font-black text-green-400 font-mono">+85%</div>
+          <p class="text-sm font-bold text-slate-300">Mais conversas diretas no WhatsApp de compradores qualificados</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: DEMONSTRAÇÃO DO PRODUTO -->
+    <div class="slide hidden space-y-6" data-slide="4">
+      <span class="text-xs font-extrabold text-blue-400 uppercase tracking-widest">Produto em Operação</span>
+      <h2 class="text-3xl md:text-4xl font-black text-white">Dashboard do Lojista + Simulador Meta DAA</h2>
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-2">
+        <div class="md:col-span-7 space-y-4">
+          <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+            <h4 class="font-bold text-white text-sm">Funcionalidades Chave do Painel:</h4>
+            <ul class="space-y-2 text-xs text-slate-300">
+              <li class="flex items-center gap-2">✅ <strong>Mapeador De/Para Interativo</strong>: Mapeie qualquer campo de DMS sem tocar em código.</li>
+              <li class="flex items-center gap-2">✅ <strong>Tabela de Pendências</strong>: Alerta fotos com proporção errada ou falta de quilometragem.</li>
+              <li class="flex items-center gap-2">✅ <strong>Histórico de Auditoria</strong>: Log imutável de todas as sincronizações e alterações de preço.</li>
+              <li class="flex items-center gap-2">✅ <strong>Automação de Conteúdo IA</strong>: Blog com Open Deep Research gerando autoridade orgânica.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="md:col-span-5 bg-slate-900 p-5 rounded-3xl border border-slate-800 shadow-2xl">
+          <div class="text-xs text-slate-400 mb-2 flex justify-between">
+            <span>Mockup Meta Ads</span>
+            <span class="text-green-400 font-mono">● Sincronizado</span>
+          </div>
+          <div class="rounded-xl overflow-hidden bg-black border border-slate-800 p-3 space-y-2">
+            <div class="h-32 bg-slate-800 rounded-lg flex items-center justify-center text-slate-500 font-mono text-xs">
+              [Preview Carrossel Instagram 1:1]
+            </div>
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-bold text-white">BMW 320i M Sport 2026</span>
+              <span class="text-red-400 font-mono font-bold">R$ 349.900</span>
+            </div>
+            <div class="text-[10px] text-slate-400 font-mono">14.200 km • Placa BRA-2E26 • 100% em Estoque</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: TAM, SAM, SOM -->
+    <div class="slide hidden space-y-6" data-slide="5">
+      <span class="text-xs font-extrabold text-indigo-400 uppercase tracking-widest">Oportunidade de Mercado</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Mercado Gigante & Pouco Atendido no Brasil</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl p-6 space-y-3">
+          <div class="text-xs font-bold text-indigo-400 uppercase">TAM (Mercado Total)</div>
+          <div class="text-4xl font-black text-white font-mono">45.000+</div>
+          <p class="text-xs text-slate-400">Concessionárias e revendas ativas no Brasil (Fenauto / Fenabrave). Potencial de <strong>R$ 106M / ano</strong> em software de catálogo.</p>
+        </div>
+        <div class="bg-slate-900/90 border border-blue-500/30 rounded-2xl p-6 space-y-3">
+          <div class="text-xs font-bold text-blue-400 uppercase">SAM (Endereçável)</div>
+          <div class="text-4xl font-black text-white font-mono">22.000</div>
+          <p class="text-xs text-slate-400">Lojas que já investem em mídia paga digital e utilizam DMS homologado. Potencial de <strong>R$ 52M / ano</strong>.</p>
+        </div>
+        <div class="bg-gradient-to-b from-slate-900 to-indigo-950 border border-indigo-500 rounded-2xl p-6 space-y-3">
+          <div class="text-xs font-bold text-indigo-300 uppercase">SOM (Objetivo 24 meses)</div>
+          <div class="text-4xl font-black text-green-400 font-mono">900 Lojas</div>
+          <p class="text-xs text-slate-300">4% do mercado qualificado via agências de tráfego e self-service. <strong>ARR Alvo: R$ 2,26 Milhões</strong>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: MODELO DE NEGÓCIOS -->
+    <div class="slide hidden space-y-6" data-slide="6">
+      <span class="text-xs font-extrabold text-green-400 uppercase tracking-widest">Monetização & Planos</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white">SaaS B2B com Receita Recorrente Previsível</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+          <div class="font-bold text-white">Starter Catalog</div>
+          <div class="text-3xl font-black text-white font-mono">R$ 97<span class="text-xs text-slate-400">/mês</span></div>
+          <p class="text-xs text-slate-400">Até 50 veículos • 1 DMS • Sincronização diária • Lojas boutique.</p>
+        </div>
+        <div class="bg-gradient-to-b from-blue-950 to-slate-900 border-2 border-blue-500 rounded-2xl p-6 space-y-4 relative">
+          <span class="absolute -top-3 left-6 bg-blue-500 text-white text-[10px] font-extrabold px-3 py-0.5 rounded-full">Carro-Chefe</span>
+          <div class="font-bold text-white">Pro Automotive</div>
+          <div class="text-3xl font-black text-white font-mono">R$ 197<span class="text-xs text-slate-400">/mês</span></div>
+          <p class="text-xs text-slate-300">Até 200 veículos • Sincronização a cada 15 min • Suporte prioritário WhatsApp • Mapeador De/Para.</p>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 space-y-4">
+          <div class="font-bold text-white">Enterprise DAA</div>
+          <div class="text-3xl font-black text-white font-mono">R$ 397<span class="text-xs text-slate-400">/mês</span></div>
+          <p class="text-xs text-slate-400">Veículos ilimitados • Multi-lojas / Filiais • Sincronização em tempo real contínuo • SLA 99.9%.</p>
+        </div>
+      </div>
+      <div class="flex justify-between items-center text-xs text-slate-400 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+        <span>📊 <strong>Margem Bruta</strong>: > 88%</span>
+        <span>💎 <strong>LTV Estimado</strong>: R$ 4.700</span>
+        <span>🎯 <strong>LTV / CAC Projetado</strong>: 10,4x</span>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: TECNOLOGIA & MOAT -->
+    <div class="slide hidden space-y-6" data-slide="7">
+      <span class="text-xs font-extrabold text-blue-400 uppercase tracking-widest">Fosso Tecnológico</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Engenharia Desenvolvida para Alta Escala</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">⚡ Streaming SAX Parser & Diff Engine</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Processa feeds XML de mais de 50MB (5.000+ veículos) em menos de 30 segundos, consumindo menos de 256MB de RAM. O motor de diff analisa apenas registros alterados, poupando custos de banco e computação.
+          </p>
+        </div>
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">🚀 Caching de Borda em Redis (p50 &lt; 250ms)</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            O crawler da Meta consulta o feed público repetidamente. Nosso cache em memória compactado com GZIP responde em menos de 250 milissegundos com disponibilidade garantida de 99.9%.
+          </p>
+        </div>
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">🏢 Multi-Tenancy com Isolamento Estrito</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Arquitetura lógica em PostgreSQL com Prisma Client Extensions, assegurando que nenhum dado vaze entre concessionárias e audit log imutável de ações e acessos.
+          </p>
+        </div>
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <h3 class="text-base font-bold text-white flex items-center gap-2">🤖 Agente Autônomo de SEO com Gemini</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            O <code>ai-content-worker</code> pesquisa tendências do mercado automotivo e produz conteúdo técnico contínuo para o blog, dominando o ranking do Google e gerando leads inbound com CAC zero.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: GO-TO-MARKET -->
+    <div class="slide hidden space-y-6" data-slide="8">
+      <span class="text-xs font-extrabold text-amber-400 uppercase tracking-widest">Estratégia Go-To-Market</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Canais de Distribuição de Alto Crescimento</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-4 pt-4">
+        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-2">
+          <div class="text-2xl font-bold text-blue-400">01</div>
+          <h3 class="text-sm font-bold text-white">Parcerias com Agências</h3>
+          <p class="text-xs text-slate-400">Agências de tráfego automotivo sofrem com a operação. Oferecemos 20% de revenue share recorrente para quem plugar sua carteira.</p>
+        </div>
+        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-2">
+          <div class="text-2xl font-bold text-green-400">02</div>
+          <h3 class="text-sm font-bold text-white">Ecossistema de DMSs</h3>
+          <p class="text-xs text-slate-400">Integração oficial listada como app recomendado no AutoCerto, Altimus, Sisvag e BomControle.</p>
+        </div>
+        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-2">
+          <div class="text-2xl font-bold text-indigo-400">03</div>
+          <h3 class="text-sm font-bold text-white">Product-Led Growth</h3>
+          <p class="text-xs text-slate-400">Teste grátis de 14 dias sem cartão no plano Pro. Lojista valida o feed na Meta no primeiro dia.</p>
+        </div>
+        <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-2">
+          <div class="text-2xl font-bold text-red-400">04</div>
+          <h3 class="text-sm font-bold text-white">Inbound SEO Orgânico</h3>
+          <p class="text-xs text-slate-400">Centenas de artigos específicos gerados por IA capturando termos como "feed xml autocerto meta ads".</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: COMPETITIVIDADE -->
+    <div class="slide hidden space-y-6" data-slide="9">
+      <span class="text-xs font-extrabold text-blue-400 uppercase tracking-widest">Matriz Competitiva</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Por que o DriveSync Vence</h2>
+      <div class="overflow-x-auto pt-4">
+        <table class="w-full text-left text-xs text-slate-300 border border-slate-800 rounded-xl">
+          <thead class="bg-slate-900 text-slate-200 uppercase font-bold text-[11px]">
+            <tr>
+              <th class="p-4">Recurso / Diferencial</th>
+              <th class="p-4">Processo Manual</th>
+              <th class="p-4">Ferramentas Genéricas de Feed</th>
+              <th class="p-4 text-blue-400 bg-blue-950/30">DriveSync (SaaS Auto)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800">
+            <tr>
+              <td class="p-4 font-bold text-white">Especialização 100% Automotiva</td>
+              <td class="p-4 text-red-400">Não</td>
+              <td class="p-4 text-amber-400">Genérico para Varejo</td>
+              <td class="p-4 font-bold text-green-400 bg-blue-950/20">Sim (XSD DAA Nativo)</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white">Conectores DMS Brasileiros</td>
+              <td class="p-4 text-red-400">Não</td>
+              <td class="p-4 text-red-400">Não homologado</td>
+              <td class="p-4 font-bold text-green-400 bg-blue-950/20">AutoCerto, Altimus, Sisvag...</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white">Sincronização em Sub-Hora</td>
+              <td class="p-4 text-red-400">Apenas semanal/mensal</td>
+              <td class="p-4 text-amber-400">Geralmente 24 horas</td>
+              <td class="p-4 font-bold text-green-400 bg-blue-950/20">A cada 15 min ou contínuo</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-bold text-white">Preço Acessível em Reais</td>
+              <td class="p-4 text-red-400">R$ 1.500+ em horas</td>
+              <td class="p-4 text-red-400">U$ 150 - U$ 500 (em dólar)</td>
+              <td class="p-4 font-bold text-green-400 bg-blue-950/20">A partir de R$ 97 / mês</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 10: TRAÇÃO & VALIDAÇÃO -->
+    <div class="slide hidden space-y-6" data-slide="10">
+      <span class="text-xs font-extrabold text-green-400 uppercase tracking-widest">Estágio de Desenvolvimento</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Base Tecnológica Pronta & Testada</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4">
+          <h3 class="text-sm font-bold text-white uppercase tracking-wider">Entregas Concluídas (Set/2026):</h3>
+          <ul class="space-y-2.5 text-xs text-slate-300">
+            <li class="flex items-center gap-2">✅ Ingestão de XML/JSON com SAX streaming e Diff Engine.</li>
+            <li class="flex items-center gap-2">✅ API REST multi-tenant e gerador de feed Meta Ads DAA.</li>
+            <li class="flex items-center gap-2">✅ Frontend SPA com simulador de anúncios e tabela de pendências.</li>
+            <li class="flex items-center gap-2">✅ Backoffice exclusivo para Super Admin com logs de auditoria.</li>
+            <li class="flex items-center gap-2">✅ Integração de pagamentos e assinaturas Stripe.</li>
+          </ul>
+        </div>
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-4 flex flex-col justify-center">
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs text-slate-400">Código & Governança</span>
+            <span class="text-xs font-mono font-bold text-green-400">7 Repositórios Ativos</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+            <span class="text-xs text-slate-400">Integração Contínua</span>
+            <span class="text-xs font-mono font-bold text-blue-400">100% CI/CD Automatizado</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-xs text-slate-400">Conformidade Legal</span>
+            <span class="text-xs font-mono font-bold text-indigo-400">LGPD & Akoma Ntoso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 11: ROADMAP FUTURO -->
+    <div class="slide hidden space-y-6" data-slide="11">
+      <span class="text-xs font-extrabold text-indigo-400 uppercase tracking-widest">Visão de Futuro</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Evolução do Produto & Multicanalidade</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <span class="text-xs font-bold text-blue-400">Q4 2026</span>
+          <h3 class="text-base font-bold text-white">Google Vehicle Ads (GVA)</h3>
+          <p class="text-xs text-slate-400">Expandir o mesmo feed para a vitrine de veículos no topo do Google Shopping e Google Maps.</p>
+        </div>
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <span class="text-xs font-bold text-indigo-400">Q1 2027</span>
+          <h3 class="text-base font-bold text-white">TikTok Automotive Feed</h3>
+          <p class="text-xs text-slate-400">Geração dinâmica de carrossel de vídeos curtos no TikTok para o público jovem e primeiro carro.</p>
+        </div>
+        <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+          <span class="text-xs font-bold text-green-400">Q2 2027</span>
+          <h3 class="text-base font-bold text-white">Expansão México & Colômbia</h3>
+          <p class="text-xs text-slate-400">Internacionalização para os maiores mercados de seminovos da América Latina com a mesma arquitetura.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 12: CAPTAÇÃO & THE ASK -->
+    <div class="slide hidden space-y-6" data-slide="12">
+      <span class="text-xs font-extrabold text-red-400 uppercase tracking-widest">Oportunidade de Investimento</span>
+      <h2 class="text-3xl md:text-5xl font-black text-white">Captação & Uso de Recursos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+        <div class="space-y-4">
+          <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800 space-y-3">
+            <h3 class="text-sm font-bold text-slate-300 uppercase">Alocação de Capital (Seed / Pre-Seed)</h3>
+            <div class="space-y-2 text-xs">
+              <div class="flex justify-between items-center"><span class="text-white font-bold">Vendas & Go-To-Market (Inside Sales)</span><span class="font-mono text-blue-400 font-bold">45%</span></div>
+              <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-blue-500 h-full w-[45%]"></div></div>
+              
+              <div class="flex justify-between items-center pt-2"><span class="text-white font-bold">Engenharia & Novos Conectores</span><span class="font-mono text-green-400 font-bold">35%</span></div>
+              <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-green-500 h-full w-[35%]"></div></div>
+              
+              <div class="flex justify-between items-center pt-2"><span class="text-white font-bold">Operações & Customer Success</span><span class="font-mono text-amber-400 font-bold">20%</span></div>
+              <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden"><div class="bg-amber-500 h-full w-[20%]"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gradient-to-br from-slate-900 to-blue-950 p-6 rounded-2xl border border-blue-500/40 flex flex-col justify-between space-y-6">
+          <div>
+            <h3 class="text-base font-bold text-white mb-2">Metas em 12 Meses:</h3>
+            <ul class="space-y-2 text-xs text-slate-300">
+              <li class="flex items-center gap-2">🎯 <strong>450 Concessionárias Ativas</strong></li>
+              <li class="flex items-center gap-2">🎯 <strong>R$ 95.000 MRR</strong> (Break-even atingido)</li>
+              <li class="flex items-center gap-2">🎯 <strong>3 Parcerias Oficiais de DMS</strong></li>
+            </ul>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-950/80 border border-slate-800 text-center">
+            <p class="text-xs text-slate-400 font-mono">Contato para Investimentos & Parcerias:</p>
+            <p class="text-sm font-bold text-white mt-1">contato@autocatalogo.com.br</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Rodapé de Controles e Atalhos -->
+  <footer class="w-full border-t border-slate-900 bg-slate-950 px-6 py-3 flex items-center justify-between text-xs text-slate-500 z-20">
+    <div class="flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-green-500"></span>
+      <span>DriveSync (saas-auto-catalogo)</span>
+    </div>
+    <div class="hidden sm:flex items-center gap-4">
+      <span>Dica: Use as setas <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono">→</kbd> do teclado</span>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 12;
+
+    function showSlide(n) {
+      document.querySelectorAll('.slide').forEach(s => {
+        s.classList.add('hidden');
+        s.classList.remove('slide-enter');
+      });
+      const target = document.querySelector(`.slide[data-slide="${n}"]`);
+      if (target) {
+        target.classList.remove('hidden');
+        target.classList.add('slide-enter');
+      }
+      document.getElementById('slideCounter').innerText = `Slide ${n} / ${totalSlides}`;
+      document.getElementById('prevBtn').disabled = (n === 1);
+      document.getElementById('nextBtn').disabled = (n === totalSlides);
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        currentSlide++;
+        showSlide(currentSlide);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        currentSlide--;
+        showSlide(currentSlide);
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
