@@ -22,30 +22,43 @@
 
 ---
 
-### Slide 2: O Problema Real do Varejo Automotivo
-*O marketing automotivo digital é quebrado por operações manuais, inventário fantasma e dados fragmentados.*
+### Slide 2: O Problema Real — A Crise do Inventário Fantasma (*Ghost Inventory*)
+*A queima de quase 30% da verba de mídia ocorre na assimetria operacional do fim de semana.*
 
-1. **Inventário Fantasma (*Ghost Inventory*) e Desperdício de Mídia**:
-   - Concessionárias investem de R$ 5.000 a R$ 50.000+/mês em tráfego pago.
-   - Veículos faturados na sexta continuam gerando cliques caros no fim de semana inteiro por falta de sincronização.
-   - **Prejuízo direto**: **R$ 2.000 a R$ 5.000/mês** jogados fora em cliques para carros indisponíveis.
-2. **Leilão Ineficiente & Alto Custo Unitário**:
-   - Campanhas estáticas operam com CTR baixo (**0,90%**), CPC inflacionado (**$1,92 – $2,08**) e CPL médio elevado (**$42,50 / lead**).
-3. **Trabalho Manual Extenuante**:
-   - Agências e equipes internas gastam mais de **40 horas/mês** subindo fotos, alterando preços e pausando anúncios manualmente.
-4. **Experiência Frustrada no WhatsApp**:
-   - Leads chegam no WhatsApp procurando por carros que já foram vendidos ou com preços divergentes do site.
+1. **A Mecânica da Latência de Fim de Semana (48h a 72h de cegueira)**:
+   - **Sexta-feira (14h–18h)**: Pico de propostas de crédito e contratos faturados no DMS.
+   - **Sábado e Domingo**: Equipes administrativas estão ausentes, mas é o **pico absoluto de navegação e busca mobile** de compradores em VDPs.
+   - **Armadilha Algorítmica**: O algoritmo da Meta (Advantage+) canaliza automaticamente a verba para os carros com maior engajamento histórico — justamente os veículos mais populares que acabaram de ser vendidos.
+2. **Modelação Matemática do Desperdício Direto (Operação Média de 40 a 80 carros/mês)**:
+
+| Hipótese Operacional | Carros Indisponíveis no Ar | Cliques Inúteis / Carro | CPC Médio de Catálogo | Desperdício Mensal | Impacto no Orçamento (R$ 20k/mês) |
+|---|---|---|---|---|---|
+| **Cenário Conservador** | 3 viaturas | 60 cliques | R$ 2,50 | **R$ 1.800,00** | **9,0%** |
+| **Cenário Intermédio (Típico)** | 5 viaturas | 90 cliques | R$ 3,20 | **R$ 5.760,00** | **28,8% da verba total jogada fora** |
+| **Cenário Severo** | 8 viaturas | 120 cliques | R$ 3,80 | **R$ 14.592,00** | **72,9% do orçamento evaporado** |
+
+3. **Danos Comerciais & Reputacionais no Showroom**:
+   - **Suspeita de "Bait-and-Switch" (Publicidade Enganosa)**: O comprador clica no anúncio dinâmico, chama no WhatsApp e ouve que o carro já foi vendido.
+   - **Sobrecarga do BDC / SDR**: Pré-vendedores perdem tempo precioso tentando redirecionar leads frustrados em vez de negociar estoques reais.
+   - **Penalização Algorítmica**: Anúncios que direcionam para páginas com status esgotado sofrem reprovação automática no Google Vehicle Ads e Meta, degradando o índice de qualidade e encarecendo todos os outros lances.
 
 ---
 
-### Slide 3: A Solução — DriveSync & Benchmarks Empíricos
-*Automação de ponta a ponta homologada com os DMSs líderes e comprovada por benchmarks da indústria.*
+### Slide 3: A Solução — DriveSync & Arquitetura Event-Driven
+*Extinção imediata da latência de catálogo com supressão em < 15 minutos via APIs oficiais.*
 
-- **Plug-and-Play em 3 Minutos**: Suporte nativo aos principais DMSs do Brasil (AutoCerto, Altimus, Sisvag, BomControle, Linx, Syonet, NBS, DealerNet).
-- **Normalização Canônica Instantânea**: Tradução para o rigoroso padrão XSD Meta Automotive Inventory Ads (DAA).
-- **Sincronização Contínua em Tempo Real**: Venda faturada no DMS cessa impressões publicitárias daquele VIN específico imediatamente.
+#### Comparativo de Arquiteturas de Sincronização:
+| Arquitetura | Modelo de Comunicação | Frequência de Execução | Latência Média | Risco de Desperdício em Mídia |
+|---|---|---|---|---|
+| **Manual / Convencional** | Intervenção de operador | Dias úteis (sob demanda) | 24h a 72h+ | **Crítico** (inoperante em fins de semana) |
+| **Feed Batch Agendado** | Exportação XML/CSV via site | 1x ao dia (noturno) | 12h a 24h | **Elevado** (vulnerável na sexta à tarde) |
+| **Middleware Tradicional** | Plataformas intermediárias | A cada 1 a 2 horas | 1h a 2h | Reduzido |
+| **DriveSync (Event-Driven)** | **Webhooks / Graph API Batch** | **Tempo Real / Gatilho** | **< 15 minutos** | **Zero / Residual** |
 
-#### Benchmarks Empíricos do Setor (Manual vs DriveSync Sincronizado):
+- **Antecipação Inteligente de Baixa**: Comuta o status de publicidade do veículo no momento da **reserva formal / aprovação no CRM**, sem aguardar o faturamento fiscal da NF no DMS.
+- **Suporte Nativo ao Ecossistema Nacional**: Linx, Syonet, NBS, AutoCerto, Altimus, Sisvag, BomControle e DealerNet.
+
+#### Benchmarks Empíricos Consolidados (Manual vs DriveSync Sincronizado):
 | Métrica de Desempenho Global | Anúncios Manuais / Estáticos | Meta Automotive Ads (DriveSync) | Variação de Eficiência |
 |---|---|---|---|
 | **Taxa de Cliques no Link (CTR)** | 0,90% | **1,80% – 4,50%** | **+100% a +400%** |

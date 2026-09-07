@@ -27,7 +27,8 @@ A apresentação visual interativa dos 12 slides foi desenvolvida com Tailwind C
 ├── index.html                     # Apresentação interativa dos 12 slides (Tailwind CSS)
 ├── slides/
 │   └── pitch_deck_drivesync.md    # Roteiro textual completo, notas de oratória e métricas
-├── Sincronização DMS e Meta Ads.md # Base de conhecimento com benchmarks empíricos do setor
+├── Sincronização DMS e Meta Ads.md # Benchmarks empíricos de CPL, CTR, CPC e conversão
+├── Inventário Fantasma em Concessionárias.md # Diagnóstico técnico, latência de fim de semana e evasão orçamentária
 ├── .github/
 │   └── workflows/
 │       └── deploy-pages.yml       # Deploy automático no GitHub Pages a cada push na main
@@ -43,9 +44,10 @@ A apresentação visual interativa dos 12 slides foi desenvolvida com Tailwind C
 |---|---|---|
 | **Redução de CPL Médio** | **-29% a -47% (média -47%)** | De $42,50 para $22,58 com AIA sincronizado ao DMS (Meta Benchmarks) |
 | **Custo por Carro Vendido** | **-44,8% ($259 vs $469)** | Redução direta de R$ 1.050+ no custo de aquisição por veículo comercializado |
+| **Eliminação de Inventário Fantasma**| **100% Supressão (&lt; 15 min)** | Estanca perda de **R$ 1.800 a R$ 5.760/mês** (até **28,8% do orçamento de mídia**) |
+| **Latência de Fim de Semana** | **&lt; 15 min (vs 48h–72h manual)** | Elimina o gargalo crítico entre faturamento na sexta e consumo mobile no sábado/domingo |
 | **Aumento no Volume de Leads** | **3,4x (+240%)** | De 1,0x para 3,4x mais conversões com o mesmo investimento em mídia |
-| **Taxa de Conversão (CVR)** | **7,80% (vs 2,30%)** | VDP canônica e dados exatos de preço, km e fotos eliminam atrito |
-| **Eliminação de Inventário Fantasma**| **100% Supressão** | Estanca desperdício de R$ 2.000 a R$ 5.000/mês em carros já faturados |
+| **Taxa de Conversão (CVR)** | **7,80% (vs 2,30%)** | VDP canônica e dados exatos de preço, km e fotos eliminam atrito e suspeita de *bait-and-switch* |
 | **Taxa de Cliques (CTR)** | **1,80% a 4,50% (vs 0,90%)** | Relevância contextual no leilão (+100% a +400% de CTR no link) |
 | **Economia Operacional** | **~40h / mês por loja** | Fim do upload e cadastro manual repetitivo de fotos e preços |
 | **TAM (Brasil)** | **R$ 106M / ano** | +45.000 revendas e concessionárias ativas (Fenauto / Fenabrave) |
