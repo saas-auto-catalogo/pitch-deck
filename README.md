@@ -17,7 +17,7 @@ A apresentação visual interativa dos 12 slides foi desenvolvida com Tailwind C
 - **Apresentação Online**: [saas-auto-catalogo.github.io/pitch-deck](https://saas-auto-catalogo.github.io/pitch-deck/)
 - **Arquivo Local / GitHub**: [`index.html`](./index.html)
 - **Roteiro & Notas de Oratória**: [`slides/pitch_deck_drivesync.md`](./slides/pitch_deck_drivesync.md)
-- **Navegação**: Use as setas do teclado (`←` e `→`) ou barra de espaço para avançar os slides.
+- **Navegação**: Use as setas do teclado (`←`, `→`, `Espaço`), `F` para tela cheia, atalhos numéricos via URL (`#slide-N`) ou deslize com o dedo (*swipe touch*) em dispositivos móveis.
 
 ---
 

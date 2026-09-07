@@ -4,7 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pitch Deck — DriveSync (SaaS Auto Catálogo)</title>
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  
+  <!-- SEO & Social Sharing / Open Graph -->
+  <meta name="description" content="Apresentação executiva e tese de investimento da DriveSync: infraestrutura que conecta DMSs automotivos ao Meta Automotive Inventory Ads (DAA) em 3 minutos.">
+  <meta property="og:title" content="DriveSync — Investor Pitch Deck & Tese de Investimento">
+  <meta property="og:description" content="Conecte o pátio da sua concessionária ao Meta Ads em tempo real. Redução de 38% no CPL e eliminação total do desperdício operacional.">
+  <meta property="og:url" content="https://saas-auto-catalogo.github.io/pitch-deck/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#020617">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .slide-enter {
       animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -17,29 +28,35 @@
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans min-h-screen flex flex-col justify-between select-none antialiased">
 
+  <!-- Barra de Progresso Superior -->
+  <div id="progressBar" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 via-indigo-500 to-emerald-400 transition-all duration-300 z-50" style="width: 8.33%;"></div>
+
   <!-- Header Superior -->
-  <header class="w-full border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md px-6 py-3 flex items-center justify-between z-20">
+  <header class="w-full border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md px-4 sm:px-6 py-3 flex items-center justify-between z-20">
     <div class="flex items-center gap-3">
       <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center font-black text-white text-sm shadow-md shadow-blue-500/20">
         DS
       </div>
       <div>
         <span class="font-extrabold text-white text-sm tracking-wide">DriveSync</span>
-        <span class="text-xs text-slate-400 ml-2 border-l border-slate-700 pl-2">Investor Pitch Deck 2026</span>
+        <span class="hidden sm:inline text-xs text-slate-400 ml-2 border-l border-slate-700 pl-2">Investor Pitch Deck 2026</span>
       </div>
     </div>
 
-    <!-- Indicador de Slide -->
-    <div class="flex items-center gap-3">
-      <span id="slideCounter" class="text-xs font-mono font-bold text-slate-400 bg-slate-800 px-3 py-1 rounded-full">
+    <!-- Indicador de Slide & Controles -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <span id="slideCounter" class="text-xs font-mono font-bold text-slate-400 bg-slate-800 px-2.5 sm:px-3 py-1 rounded-full">
         Slide 1 / 12
       </span>
-      <div class="flex items-center gap-1.5">
-        <button id="prevBtn" onclick="prevSlide()" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed">
+      <div class="flex items-center gap-1 sm:gap-1.5">
+        <button id="prevBtn" onclick="prevSlide()" aria-label="Slide anterior" class="p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white transition disabled:opacity-30 disabled:cursor-not-allowed">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
         </button>
-        <button id="nextBtn" onclick="nextSlide()" class="p-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition shadow-lg shadow-blue-600/30 disabled:opacity-30 disabled:cursor-not-allowed">
+        <button id="nextBtn" onclick="nextSlide()" aria-label="Próximo slide" class="p-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white transition shadow-lg shadow-blue-600/30 disabled:opacity-30 disabled:cursor-not-allowed">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <button id="fullscreenBtn" onclick="toggleFullscreen()" aria-label="Tela Cheia" title="Modo Apresentação (F)" class="hidden sm:flex p-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition ml-1">
+          <svg id="fsIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
         </button>
       </div>
     </div>
@@ -415,13 +432,14 @@
   </main>
 
   <!-- Rodapé de Controles e Atalhos -->
-  <footer class="w-full border-t border-slate-900 bg-slate-950 px-6 py-3 flex items-center justify-between text-xs text-slate-500 z-20">
+  <footer class="w-full border-t border-slate-900 bg-slate-950 px-4 sm:px-6 py-3 flex items-center justify-between text-xs text-slate-500 z-20">
     <div class="flex items-center gap-2">
-      <span class="inline-block w-2 h-2 rounded-full bg-green-500"></span>
-      <span>DriveSync (saas-auto-catalogo)</span>
+      <span class="inline-block w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+      <span class="font-medium text-slate-400">DriveSync • saas-auto-catalogo</span>
     </div>
-    <div class="hidden sm:flex items-center gap-4">
-      <span>Dica: Use as setas <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono">→</kbd> do teclado</span>
+    <div class="flex items-center gap-4 text-slate-400">
+      <span class="sm:hidden text-[11px] text-slate-500">Deslize ↔ para navegar</span>
+      <span class="hidden sm:inline">Navegação: <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">→</kbd> ou <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">Espaço</kbd> • Tela cheia: <kbd class="px-1.5 py-0.5 bg-slate-800 rounded text-slate-300 font-mono text-[11px]">F</kbd></span>
     </div>
   </footer>
 
@@ -429,44 +447,146 @@
     let currentSlide = 1;
     const totalSlides = 12;
 
+    function getInitialSlide() {
+      const hash = window.location.hash;
+      const match = hash.match(/#slide-(\d+)/) || hash.match(/#(\d+)/);
+      if (match) {
+        const slideNum = parseInt(match[1], 10);
+        if (slideNum >= 1 && slideNum <= totalSlides) {
+          return slideNum;
+        }
+      }
+      return 1;
+    }
+
+    function updateProgress(n) {
+      const bar = document.getElementById('progressBar');
+      if (bar) {
+        const percent = ((n / totalSlides) * 100).toFixed(2);
+        bar.style.width = `${percent}%`;
+      }
+    }
+
     function showSlide(n) {
+      if (n < 1) n = 1;
+      if (n > totalSlides) n = totalSlides;
+      currentSlide = n;
+
       document.querySelectorAll('.slide').forEach(s => {
         s.classList.add('hidden');
         s.classList.remove('slide-enter');
       });
+
       const target = document.querySelector(`.slide[data-slide="${n}"]`);
       if (target) {
         target.classList.remove('hidden');
         target.classList.add('slide-enter');
       }
+
       document.getElementById('slideCounter').innerText = `Slide ${n} / ${totalSlides}`;
       document.getElementById('prevBtn').disabled = (n === 1);
       document.getElementById('nextBtn').disabled = (n === totalSlides);
+
+      updateProgress(n);
+
+      if (window.history && window.history.replaceState) {
+        window.history.replaceState(null, null, `#slide-${n}`);
+      }
     }
 
     function nextSlide() {
       if (currentSlide < totalSlides) {
-        currentSlide++;
-        showSlide(currentSlide);
+        showSlide(currentSlide + 1);
       }
     }
 
     function prevSlide() {
       if (currentSlide > 1) {
-        currentSlide--;
-        showSlide(currentSlide);
+        showSlide(currentSlide - 1);
       }
     }
 
+    // Teclado
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight' || e.key === ' ') {
+      // Previne conflito se estiver em input/textarea
+      if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
+
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown' || e.key === 'ArrowDown') {
+        e.preventDefault();
         nextSlide();
-      } else if (e.key === 'ArrowLeft') {
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp' || e.key === 'ArrowUp') {
+        e.preventDefault();
         prevSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        showSlide(1);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        showSlide(totalSlides);
+      } else if (e.key === 'f' || e.key === 'F') {
+        e.preventDefault();
+        toggleFullscreen();
       }
     });
 
-    showSlide(currentSlide);
+    // Gestos Touch (Mobile Swipe)
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    window.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      const touchEndX = e.changedTouches[0].screenX;
+      const touchEndY = e.changedTouches[0].screenY;
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+
+      // Detecta swipe horizontal intencional
+      if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY) * 1.4) {
+        if (diffX < 0) {
+          nextSlide(); // Swipe esquerda -> próximo
+        } else {
+          prevSlide(); // Swipe direita -> anterior
+        }
+      }
+    }, { passive: true });
+
+    // Sincronização via Hash URL
+    window.addEventListener('hashchange', () => {
+      const targetSlide = getInitialSlide();
+      if (targetSlide !== currentSlide) {
+        showSlide(targetSlide);
+      }
+    });
+
+    // Tela Cheia (Fullscreen)
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    }
+
+    document.addEventListener('fullscreenchange', () => {
+      const fsIcon = document.getElementById('fsIcon');
+      if (!fsIcon) return;
+      if (document.fullscreenElement) {
+        // Ícone de sair da tela cheia
+        fsIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`;
+      } else {
+        // Ícone de tela cheia
+        fsIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/>`;
+      }
+    });
+
+    // Inicialização
+    showSlide(getInitialSlide());
   </script>
 </body>
 </html>
