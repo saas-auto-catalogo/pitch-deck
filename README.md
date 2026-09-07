@@ -32,8 +32,16 @@ A apresentação visual interativa dos 12 slides foi desenvolvida com Tailwind C
 ├── .github/
 │   └── workflows/
 │       └── deploy-pages.yml       # Deploy automático no GitHub Pages a cada push na main
-├── assets/                        # Diagramas, mockups e logotipos
-└── financials/                    # Projeções de ARR, Unit Economics e Cap Table
+├── assets/                        # Assets visuais de alta definição (HD) e multimídia
+│   ├── mockup-instagram-bmw-320i.png    # Mockup do simulador de anúncio Instagram (BMW 320i)
+│   ├── mockup-instagram-porsche-macan.png # Mockup do simulador Meta Advantage+ (Porsche Macan)
+│   ├── tabela-pendencias-estoque.png     # Captura da Tabela de Pendências de Estoque do frontend-app
+│   ├── mapeador-de-para.png             # Captura do Estúdio Mapeador De/Para Interativo
+│   ├── demo-sync-feed.mp4               # Vídeo curto (10s) da demonstração de sincronização ponta-a-ponta
+│   ├── demo-sync-feed.gif               # Versão em GIF animado para fallback e compartilhamento
+│   ├── car-bmw-320i.jpg                 # Fotografia de alta resolução do veículo BMW 320i M Sport
+│   └── car-porsche-macan.jpg            # Fotografia de alta resolução do veículo Porsche Macan GTS
+├── financials/                    # Projeções de ARR, Unit Economics e Cap Table
 ```
 
 ---

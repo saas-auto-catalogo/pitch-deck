@@ -178,36 +178,182 @@
     </div>
 
     <!-- SLIDE 4: DEMONSTRAÇÃO DO PRODUTO -->
-    <div class="slide hidden space-y-6" data-slide="4">
-      <span class="text-xs font-extrabold text-blue-400 uppercase tracking-widest">Produto em Operação</span>
-      <h2 class="text-3xl md:text-4xl font-black text-white">Dashboard do Lojista + Simulador Meta DAA</h2>
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center pt-2">
-        <div class="md:col-span-7 space-y-4">
-          <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
-            <h4 class="font-bold text-white text-sm">Funcionalidades Chave do Painel:</h4>
-            <ul class="space-y-2 text-xs text-slate-300">
-              <li class="flex items-center gap-2">✅ <strong>Mapeador De/Para Interativo</strong>: Mapeie qualquer campo de DMS sem tocar em código.</li>
-              <li class="flex items-center gap-2">✅ <strong>Tabela de Pendências Inteligente</strong>: Alerta fotos sem proporção 1:1 ou falta de quilometragem.</li>
-              <li class="flex items-center gap-2">✅ <strong>Product-Level Video (PLV)</strong>: Geração dinâmica de vídeos curtos por VIN (+48% conversão).</li>
-              <li class="flex items-center gap-2">✅ <strong>Anti-Schema Drift</strong>: Validação prévia de preço de VDP e integridade fiscal para evitar punição no leilão.</li>
-              <li class="flex items-center gap-2">✅ <strong>Histórico de Auditoria</strong>: Log imutável de todas as sincronizações e alterações de status de estoque.</li>
-            </ul>
+    <div class="slide hidden space-y-5" data-slide="4">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div>
+          <span class="text-xs font-extrabold text-blue-400 uppercase tracking-widest">Produto em Operação</span>
+          <h2 class="text-2xl md:text-4xl font-black text-white">Dashboard do Lojista + Simulador Meta DAA</h2>
+        </div>
+        <span class="text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 px-3 py-1 rounded-full w-fit">
+          ● Produção Ativa
+        </span>
+      </div>
+
+      <!-- Navegação de Abas Interativas do Slide 4 -->
+      <div class="flex flex-wrap items-center gap-2 border-b border-slate-800 pb-2">
+        <button onclick="switchProductTab('bmw')" id="tab-btn-bmw" class="prod-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-blue-600 text-white shadow-md shadow-blue-600/30">
+          <span>🚗 BMW 320i (Instagram)</span>
+        </button>
+        <button onclick="switchProductTab('porsche')" id="tab-btn-porsche" class="prod-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700">
+          <span>🏎️ Porsche Macan (Meta DAA)</span>
+        </button>
+        <button onclick="switchProductTab('pendencias')" id="tab-btn-pendencias" class="prod-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700">
+          <span>⚠️ Tabela de Pendências</span>
+        </button>
+        <button onclick="switchProductTab('mapeador')" id="tab-btn-mapeador" class="prod-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700">
+          <span>🔄 Mapeador De/Para</span>
+        </button>
+        <button onclick="switchProductTab('demo')" id="tab-btn-demo" class="prod-tab-btn px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5 bg-slate-800 text-slate-300 hover:bg-slate-700">
+          <span>🎬 Sync ao Vivo (10s Vídeo/GIF)</span>
+        </button>
+      </div>
+
+      <!-- Conteúdo das Abas -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+        <!-- Coluna de Explicação Técnica (5 cols) -->
+        <div class="md:col-span-5 space-y-4">
+          <div id="tab-desc-bmw" class="prod-desc space-y-3">
+            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-blue-400 uppercase">Mockup Instagram Feed</span>
+                <span class="text-[11px] font-mono font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">R$ 349.900</span>
+              </div>
+              <h4 class="font-bold text-white text-base">BMW 320i M Sport 2026</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Anúncio de catálogo dinâmico (Meta Advantage+ DAA) gerado automaticamente. Foto em proporção 1:1, destaque de preço em vermelho (<code class="text-red-400">#ef4444</code>) e botão direto de WhatsApp com mensagem contextual do veículo.
+              </p>
+              <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
+                <li class="flex items-center gap-2">✅ <strong>Custom Labels:</strong> Segmentação automática por faixa de preço e turbo.</li>
+                <li class="flex items-center gap-2">✅ <strong>Taxa de Conversão:</strong> CVR salta de 2,30% para 7,80%.</li>
+              </ul>
+            </div>
+            <button onclick="openMockupZoom('assets/mockup-instagram-bmw-320i.png')" class="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700 transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span>Ver Mockup em Alta Resolução (HD)</span>
+            </button>
+          </div>
+
+          <div id="tab-desc-porsche" class="prod-desc hidden space-y-3">
+            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-blue-400 uppercase">Simulação Meta Advantage+</span>
+                <span class="text-[11px] font-mono font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">R$ 689.000</span>
+              </div>
+              <h4 class="font-bold text-white text-base">Porsche Macan GTS 2026</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Veículo com badge PLV (Product-Level Video) integrado. Anúncios enriquecidos com vídeo curto por VIN geram até +48% em taxas de conversão de leads qualificados de alta renda.
+              </p>
+              <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
+                <li class="flex items-center gap-2">✅ <strong>Meta Advantage+:</strong> Roteamento preditivo para usuários com alta intenção.</li>
+                <li class="flex items-center gap-2">✅ <strong>Blindagem III-A:</strong> Tag DAA customizada para públicos segmentados.</li>
+              </ul>
+            </div>
+            <button onclick="openMockupZoom('assets/mockup-instagram-porsche-macan.png')" class="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700 transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span>Ver Mockup em Alta Resolução (HD)</span>
+            </button>
+          </div>
+
+          <div id="tab-desc-pendencias" class="prod-desc hidden space-y-3">
+            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-amber-400 uppercase">Proteção de Budget</span>
+                <span class="text-[11px] font-mono font-bold text-red-400 bg-red-500/10 px-2 py-0.5 rounded border border-red-500/20">Zero Rejeições</span>
+              </div>
+              <h4 class="font-bold text-white text-base">Tabela de Pendências de Estoque</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Algoritmo de auditoria prévia que identifica e isola veículos com fotos cortadas (fora de 1:1), preço zerado ou dados fiscais divergentes antes do leilão da Meta Ads.
+              </p>
+              <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
+                <li class="flex items-center gap-2">🛡️ <strong>Zero Punição de Score:</strong> Evita queda no índice de qualidade do Meta Catalog.</li>
+                <li class="flex items-center gap-2">💰 <strong>Economia Média:</strong> -R$ 1.840/semana em desperdícios operacionais.</li>
+              </ul>
+            </div>
+            <button onclick="openMockupZoom('assets/tabela-pendencias-estoque.png')" class="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700 transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span>Ver Tabela em Alta Resolução (HD)</span>
+            </button>
+          </div>
+
+          <div id="tab-desc-mapeador" class="prod-desc hidden space-y-3">
+            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-indigo-400 uppercase">Setup em 3 Minutos</span>
+                <span class="text-[11px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">99.8% Confiança IA</span>
+              </div>
+              <h4 class="font-bold text-white text-base">Mapeador De/Para Interativo</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Integração zero-code para qualquer DMS nacional (AutoCerto, Altimus, Sisvag, Linx, Syonet). O motor heurístico mapeia as tags XML com 99.8% de precisão automática.
+              </p>
+              <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
+                <li class="flex items-center gap-2">⚡ <strong>Zero Código:</strong> Lojista ou agência conecta em menos de 180 segundos.</li>
+                <li class="flex items-center gap-2">🔄 <strong>Normalização XSD:</strong> Adequação instantânea à especificação DAA.</li>
+              </ul>
+            </div>
+            <button onclick="openMockupZoom('assets/mapeador-de-para.png')" class="w-full py-2 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700 transition flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+              <span>Ver Mapeador em Alta Resolução (HD)</span>
+            </button>
+          </div>
+
+          <div id="tab-desc-demo" class="prod-desc hidden space-y-3">
+            <div class="bg-slate-900 p-5 rounded-2xl border border-slate-800 space-y-3">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-emerald-400 uppercase">Sincronização ao Vivo</span>
+                <span class="text-[11px] font-mono font-bold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">SLA 2.4s Ponta-a-Ponta</span>
+              </div>
+              <h4 class="font-bold text-white text-base">Demonstração Ponta-a-Ponta (10s)</h4>
+              <p class="text-xs text-slate-300 leading-relaxed">
+                Veja o fluxo em tempo real: alteração de preço no DMS é detectada pelo Streaming SAX, o delta XML é gerado e a Meta Graph API atualiza o anúncio no Instagram em 2.4 segundos.
+              </p>
+              <ul class="text-xs text-slate-400 space-y-1.5 pt-1">
+                <li class="flex items-center gap-2">🚀 <strong>Zero Latência:</strong> Sem espera de 48h a 72h no final de semana.</li>
+                <li class="flex items-center gap-2">👻 <strong>Zero Fantasma:</strong> Carro reservado sai do ar instantaneamente.</li>
+              </ul>
+            </div>
+            <a href="assets/demo-sync-feed.mp4" download class="w-full py-2 px-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-xs font-bold text-white transition flex items-center justify-center gap-2 shadow-lg shadow-blue-600/30">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Baixar Vídeo da Demonstração (MP4)</span>
+            </a>
           </div>
         </div>
-        <div class="md:col-span-5 bg-slate-900 p-5 rounded-3xl border border-slate-800 shadow-2xl">
-          <div class="text-xs text-slate-400 mb-2 flex justify-between">
-            <span>Mockup Meta Ads</span>
-            <span class="text-green-400 font-mono">● Sincronizado</span>
-          </div>
-          <div class="rounded-xl overflow-hidden bg-black border border-slate-800 p-3 space-y-2">
-            <div class="h-32 bg-slate-800 rounded-lg flex items-center justify-center text-slate-500 font-mono text-xs">
-              [Preview Carrossel Instagram 1:1]
+
+        <!-- Coluna de Exibição Visual / Mockup Interativo (7 cols) -->
+        <div class="md:col-span-7 flex items-center justify-center">
+          <div class="w-full bg-slate-900/80 p-3 sm:p-4 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden flex items-center justify-center min-h-[360px]">
+            <!-- Visual 1: BMW -->
+            <div id="tab-view-bmw" class="prod-view w-full flex justify-center cursor-pointer" onclick="openMockupZoom('assets/mockup-instagram-bmw-320i.png')" title="Clique para ampliar">
+              <img src="assets/mockup-instagram-bmw-320i.png" alt="Simulador Meta Ads BMW 320i" class="max-h-[380px] w-auto rounded-2xl border border-slate-800 shadow-xl object-contain hover:scale-[1.01] transition duration-200" />
             </div>
-            <div class="flex justify-between items-center text-xs">
-              <span class="font-bold text-white">BMW 320i M Sport 2026</span>
-              <span class="text-red-400 font-mono font-bold">R$ 349.900</span>
+
+            <!-- Visual 2: Porsche -->
+            <div id="tab-view-porsche" class="prod-view hidden w-full flex justify-center cursor-pointer" onclick="openMockupZoom('assets/mockup-instagram-porsche-macan.png')" title="Clique para ampliar">
+              <img src="assets/mockup-instagram-porsche-macan.png" alt="Simulador Meta Ads Porsche Macan" class="max-h-[380px] w-auto rounded-2xl border border-slate-800 shadow-xl object-contain hover:scale-[1.01] transition duration-200" />
             </div>
-            <div class="text-[10px] text-slate-400 font-mono">14.200 km • Placa BRA-2E26 • 100% em Estoque</div>
+
+            <!-- Visual 3: Pendências -->
+            <div id="tab-view-pendencias" class="prod-view hidden w-full flex justify-center cursor-pointer" onclick="openMockupZoom('assets/tabela-pendencias-estoque.png')" title="Clique para ampliar">
+              <img src="assets/tabela-pendencias-estoque.png" alt="Tabela de Pendências de Estoque" class="w-full rounded-2xl border border-slate-800 shadow-xl object-contain hover:scale-[1.01] transition duration-200" />
+            </div>
+
+            <!-- Visual 4: Mapeador -->
+            <div id="tab-view-mapeador" class="prod-view hidden w-full flex justify-center cursor-pointer" onclick="openMockupZoom('assets/mapeador-de-para.png')" title="Clique para ampliar">
+              <img src="assets/mapeador-de-para.png" alt="Mapeador De/Para Interativo" class="w-full rounded-2xl border border-slate-800 shadow-xl object-contain hover:scale-[1.01] transition duration-200" />
+            </div>
+
+            <!-- Visual 5: Vídeo / GIF Demo -->
+            <div id="tab-view-demo" class="prod-view hidden w-full flex flex-col items-center justify-center space-y-2">
+              <div class="w-full rounded-2xl border border-slate-800 overflow-hidden shadow-2xl bg-black">
+                <video id="demoVideoPlayer" class="w-full h-auto max-h-[360px] object-contain mx-auto" autoplay loop muted playsinline poster="assets/mockup-instagram-bmw-320i.png">
+                  <source src="assets/demo-sync-feed.mp4" type="video/mp4">
+                  <img src="assets/demo-sync-feed.gif" alt="Demonstração da sincronização do feed XML" class="w-full h-auto">
+                </video>
+              </div>
+              <div class="flex items-center justify-between w-full px-2 text-[11px] text-slate-400 font-mono">
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Live Simulation Loop (10s)</span>
+                <span class="text-blue-400">Stream Parser ➔ Diff ➔ Meta Batch ➔ Ad Live</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -576,6 +722,8 @@
       } else if (e.key === 'f' || e.key === 'F') {
         e.preventDefault();
         toggleFullscreen();
+      } else if (e.key === 'Escape') {
+        closeMockupZoom();
       }
     });
 
@@ -635,8 +783,68 @@
       }
     });
 
+    // Controle das Abas do Produto (Slide 4)
+    function switchProductTab(tabKey) {
+      const tabs = ['bmw', 'porsche', 'pendencias', 'mapeador', 'demo'];
+      tabs.forEach(key => {
+        const btn = document.getElementById(`tab-btn-${key}`);
+        const desc = document.getElementById(`tab-desc-${key}`);
+        const view = document.getElementById(`tab-view-${key}`);
+
+        if (key === tabKey) {
+          btn?.classList.remove('bg-slate-800', 'text-slate-300', 'hover:bg-slate-700');
+          btn?.classList.add('bg-blue-600', 'text-white', 'shadow-md', 'shadow-blue-600/30');
+          desc?.classList.remove('hidden');
+          view?.classList.remove('hidden');
+
+          if (key === 'demo') {
+            const vid = document.getElementById('demoVideoPlayer');
+            if (vid) {
+              vid.currentTime = 0;
+              vid.play().catch(() => {});
+            }
+          }
+        } else {
+          btn?.classList.remove('bg-blue-600', 'text-white', 'shadow-md', 'shadow-blue-600/30');
+          btn?.classList.add('bg-slate-800', 'text-slate-300', 'hover:bg-slate-700');
+          desc?.classList.add('hidden');
+          view?.classList.add('hidden');
+        }
+      });
+    }
+
+    // Modal de Zoom em Alta Resolução (Lightroom)
+    function openMockupZoom(src) {
+      const modal = document.getElementById('mockupModal');
+      const img = document.getElementById('mockupModalImg');
+      if (modal && img) {
+        img.src = src;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeMockupZoom() {
+      const modal = document.getElementById('mockupModal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
     // Inicialização
     showSlide(getInitialSlide());
   </script>
+
+  <!-- Modal de Zoom em Alta Resolução (Lightroom) -->
+  <div id="mockupModal" onclick="closeMockupZoom()" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4 sm:p-8 cursor-zoom-out">
+    <div class="relative max-w-5xl max-h-[92vh] flex flex-col items-center" onclick="event.stopPropagation()">
+      <button onclick="closeMockupZoom()" class="absolute -top-10 right-0 text-slate-400 hover:text-white text-xs font-mono font-bold flex items-center gap-1.5 bg-slate-800/80 px-3 py-1 rounded-full border border-slate-700">
+        <span>Fechar (ESC)</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <img id="mockupModalImg" src="" alt="Mockup Ampliado" class="max-h-[85vh] w-auto rounded-2xl border border-slate-700 shadow-2xl object-contain bg-slate-900" />
+    </div>
+  </div>
 </body>
 </html>

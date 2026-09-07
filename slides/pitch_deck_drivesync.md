@@ -86,9 +86,10 @@
 ### Slide 5: Demonstração do Produto & Experiência
 - **Dashboard do Lojista (`frontend-app`)**:
   - Telemetria de estoque: total de veículos ativos, sincronizados e pendências.
-  - Tabela de Pendências Inteligente: detecta veículos sem fotos, sem ano ou com erro de XSD antes de enviar à Meta.
-  - Simulador de Anúncios Interativo (formato 1:1 com badge de status e CTA direto para WhatsApp).
-  - Mapeador De/Para Interativo para feeds customizados.
+  - **Tabela de Pendências Inteligente**: detecta veículos sem fotos 1:1, sem preço ou com erro de XSD antes de enviar à Meta (`assets/tabela-pendencias-estoque.png`).
+  - **Simulador de Anúncios Interativo**: formato 1:1 com badge de status, preço em `#ef4444` e CTA direto para WhatsApp para BMW 320i e Porsche Macan (`assets/mockup-instagram-bmw-320i.png`, `assets/mockup-instagram-porsche-macan.png`).
+  - **Mapeador De/Para Interativo**: normalização inteligente com 99.8% de confiança de IA para feeds de qualquer DMS (`assets/mapeador-de-para.png`).
+  - **Demonstração em Vídeo / GIF (10s)**: ciclo completo de streaming SAX ➔ Diff Engine ➔ Meta Graph API Batch com SLA ponta-a-ponta de 2.4 segundos (`assets/demo-sync-feed.mp4`, `assets/demo-sync-feed.gif`).
 - **Super Admin (`backoffice-app`)**:
   - Visão multi-tenant, logs de auditoria imutáveis, saúde de feeds parceiros e moderação de conteúdo.
 
